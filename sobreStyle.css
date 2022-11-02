@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(45, 45, 49);
+    margin: 0%
+}
+
+.navbar {
+    background-color: rgb(21, 23, 26);
+    width: 100%;
+    height: 60px;
+    box-shadow: rgba(16, 2, 95, 0.233) 0px 10px 10px -5px;
+}
+
+.navbar img {
+    padding-top: 5px;
+    padding-left: 60px;
+    width: 50px;
+}
+.navbar img:hover {
+    cursor: pointer;
+}
+
+.sessaoSobre {
+    width: 100%;
+    height: 600px;
+}
+
+.footer {
+    background-color: rgb(21, 23, 26);
+    width: 100%;
+    height: 60px;
+    box-shadow: rgba(16, 2, 95, 0.233) 0px -10px 30px -10px;
+}
