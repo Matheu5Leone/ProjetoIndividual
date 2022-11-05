@@ -6,8 +6,8 @@ Conhecer a si mesmo é a verdadeira sabedoria.
 
 | Cor               | Hexadecimal                                                      |
 | ----------------- | ---------------------------------------------------------------- |
-| Amarelo Gradient  |  #0981AF                                                         |
-| Azul Tema         |  #FFEB82                                                         |
+| Azul Tema         |  #0981AF                                                         |
+| Amarelo Gradient  |  #FFEB82                                                         |
 | Roxo Destaque     |  #662B99                                                         |
 
 
