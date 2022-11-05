@@ -75,55 +75,21 @@ body {
     cursor: pointer;
     background-color: #0981AF;
 }
-
-
 .sessaoUm {
-    display: flex;
     width: 100%;
-    height: 700px;
-    background-image: url('puzzle40.png');
-    padding-top: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 0;
-    align-items: start;
-    justify-content: center;
-}
-
-.sessaoUmCoisas {
-    /* border: white 1px solid; */
-    width: 80%;
-    height: 200px;
+    height: 611px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    font-style: normal;
-    font-weight: 1000;
-    font-size: 128px;
-    line-height: 148px;
-    text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-width: 746px;
-height: 191px;
-background: radial-gradient(50% 50% at 50% 50%, #FFEB82 0%, rgba(217, 217, 217, 0) 65.1%);
 }
-.sessaoUmCoisas p {
-padding: 0;
+.sessaoUmCoisas {
+    margin-top: 45px;
+    background-color: #15171a;
+    box-shadow: rgba(16, 2, 95, 0.633) 0px 20px 30px -10px;
+    border-radius: 20px;
+    width: 40%;
+    height: 60%;
 }
-
-
-.sessaoDois {
-    /* background-color: #0981AF; */
-    width: 100%;
-    height: 600px;
-}
-
-.sessaoTres {
-    width: 100%;
-    height: 600px;
-
-}
-
 .footer {
     background-color: rgb(21, 23, 26);
     width: 100%;
