@@ -89,7 +89,75 @@ body {
     border-radius: 20px;
     width: 40%;
     height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.tipo_campo {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.formularioCadastro {
+    width: 80%;
+    height: 100%;
+    /* border: white 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.formularioCadastro button {
+    margin-top: 20px;
+    padding: 10PX;
+    background-color: #662B99;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.formularioCadastro button:hover {
+    cursor: pointer;
+    background-color: #0981AF;
+}
+.formularioCadastro p {
+    margin-top: 5px;
+    padding: 0px;
+    font-size: 10px;
+}
+.formularioCadastro a {
+    color: #0981AF;
+}
+.formularioCadastro input {
+    text-align: center;
+    padding: 5px 0px;
+    border: none;
+    border-radius: 10px;
+}
+.formularioCadastro input:focus {
+    background-color: #FFEB82;
+    border: none;
+    outline: none;
+}
+
+
+.loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+    color: #662B99;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+
+
 .footer {
     background-color: rgb(21, 23, 26);
     width: 100%;
