@@ -82,7 +82,7 @@ body {
 .sessaoUm {
     display: flex;
     width: 100%;
-    height: 700px;
+    height: 400px;
     background-image: url(../assets/puzzle40.png);
     padding-top: 150px;
     background-repeat: no-repeat;
@@ -136,11 +136,18 @@ padding: 0;
 margin: 0;
 }
 .sessaoDois {
-    /* background-color: #0981AF; */
+    border: white 1px solid;
     width: 100%;
     height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.sessaoDoisCoisas{
+    width: 90%;
+    height: 100%;
+    border: white 1px solid;
+}
 .sessaoTres {
     width: 100%;
     height: 600px;

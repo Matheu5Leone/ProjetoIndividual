@@ -15,15 +15,40 @@
 </head>
 
 <body>
-    <div class="navbar"><a href="../index.html"><img src="../assets/Hobbiz.png" onmouseover='this.src="../assets/HobbizAzul.png"'
-                onmouseout="this.src='../assets/Hobbiz.png'"></a>
+    <div class="navbar"><a href="../index.html"><img src="../assets/Hobbiz.png"
+                onmouseover='this.src="../assets/HobbizAzul.png"' onmouseout="this.src='../assets/Hobbiz.png'"></a>
+                <h1 id="user"></h1>
         <div class="botoesNavbar">
-                <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
+            <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
     </div>
     <div class="sessaoUm">
         <div class="sessaoUmCoisas">
-            
+            <div id="divBotaoUm" class="moduloDash">
+                <button id="botaoUm" onclick="mostrarBotoes()">+</button>
+                <div id="div1" class="coisasModuloDash"><p>INDEPENDENTE PARÇA</p></div>
+            </div>
+            <div id="divBotaoDois" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+                <button id="botaoDois" onclick="mostrarBotoes()">+</button>
+                <div id="div2" class="coisasModuloDash"><p>safada</p></div>
+            </div>
+            <div id="divBotaoTres" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+                <button id="botaoTres" onclick="mostrarBotoes()">+</button>
+                <div id="div3" class="coisasModuloDash"><p>essa noite eu sonhei com o MC poze do rodo</p></div>
+            </div>
+            <div id="divBotaoQuatro" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+                <button id="botaoQuatro" onclick="mostrarBotoes()">+</button>
+                <div id="div4" class="coisasModuloDash"><p> Fracassar não é cair, é recusar-se a levantar.</p></div>
+            </div>
+            <div id="divBotaoCinco" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+                <button id="botaoCinco" onclick="mostrarBotoes()">+</button>
+                <div id="div5" class="coisasModuloDash"><p>vendo um Uno seminovo 4 portas, vermelho bom estado, chamar inbox</p></div>
+            </div>
+            <div id="divBotaoSeis" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+                <button id="botaoSeis" onclick="mostrarBotoes()">+</button>
+                <div id="div6" class="coisasModuloDash"><img src="../../../../../../../IMAGENS/Saved Pictures/torino.png" alt=""></div>
+            </div>
+
         </div>
     </div>
     <!-- <div class="sessaoDois"></div>
@@ -36,5 +61,40 @@
 
 </html>
 <script>
+    
+    function mostrarBotoes() {
+        
+        if (divBotaoDois.style.visibility == "hidden") {
+            divBotaoDois.style = "visibility: visible;";
+            botaoUm.style.display = "none"
+            divBotaoUm.style = "background-color: #bfe3f1;"
+            div1.style.display = "flex"
+        } else if (divBotaoTres.style.visibility == "hidden") {
+            divBotaoTres.style = "visibility: visible;";
+            botaoDois.style.display = "none"
+            divBotaoDois.style = "background-color: #bfe3f1;"
+            div2.style.display = "flex"
+        } else if (divBotaoQuatro.style.visibility == "hidden") {
+            divBotaoQuatro.style = "visibility: visible;";
+            botaoTres.style.display = "none"
+            divBotaoTres.style = "background-color: #bfe3f1;"
+            div3.style.display = "flex"
+        } else if (divBotaoCinco.style.visibility == "hidden") {
+            divBotaoCinco.style = "visibility: visible;";
+            botaoQuatro.style.display = "none"
+            divBotaoQuatro.style = "background-color: #bfe3f1;"
+            div4.style.display = "flex"
+        } else if (divBotaoSeis.style.visibility == "hidden") {
+            divBotaoSeis.style = "visibility: visible;";
+            botaoCinco.style.display = "none"
+            divBotaoCinco.style = "background-color: #bfe3f1;"
+            div5.style.display = "flex"
+        } else if (divBotaoSeis.style.visibility == "visible") {
+            botaoSeis.style.display = "none"
+            divBotaoSeis.style = "background-color: #bfe3f1;"
+            div6.style.display = "flex"
+        } else {
 
+        }
+    }
 </script>
