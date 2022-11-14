@@ -17,7 +17,7 @@
 <body>
     <div class="navbar"><a href="../index.html"><img src="../assets/Hobbiz.png"
                 onmouseover='this.src="../assets/HobbizAzul.png"' onmouseout="this.src='../assets/Hobbiz.png'"></a>
-                <h1 id="user"></h1>
+        <h1 id="user"></h1>
         <div class="botoesNavbar">
             <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
@@ -26,29 +26,76 @@
         <div class="sessaoUmCoisas">
             <div id="divBotaoUm" class="moduloDash">
                 <button id="botaoUm" onclick="mostrarBotoes()">+</button>
-                <div id="div1" class="coisasModuloDash"><p>INDEPENDENTE PARÇA</p></div>
+                <div id="div1" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT1"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput1()">+</button></div>
+                    </div>
+                </div>
             </div>
             <div id="divBotaoDois" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoDois" onclick="mostrarBotoes()">+</button>
-                <div id="div2" class="coisasModuloDash"><p>safada</p></div>
+                <div id="div2" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT2"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput2()">+</button></div>
+                    </div>
+                </div>
             </div>
             <div id="divBotaoTres" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoTres" onclick="mostrarBotoes()">+</button>
-                <div id="div3" class="coisasModuloDash"><p>essa noite eu sonhei com o MC poze do rodo</p></div>
+                <div id="div3" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT3"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput3()">+</button></div>
+                    </div>
+                </div>
             </div>
             <div id="divBotaoQuatro" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoQuatro" onclick="mostrarBotoes()">+</button>
-                <div id="div4" class="coisasModuloDash"><p> Fracassar não é cair, é recusar-se a levantar.</p></div>
+                <div id="div4" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT4"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput4()">+</button></div>
+                    </div>
+                </div>
             </div>
             <div id="divBotaoCinco" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoCinco" onclick="mostrarBotoes()">+</button>
-                <div id="div5" class="coisasModuloDash"><p>vendo um Uno seminovo 4 portas, vermelho bom estado, chamar inbox</p></div>
+                <div id="div5" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT5"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput5()">+</button></div>
+                    </div>
+                </div>
             </div>
             <div id="divBotaoSeis" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoSeis" onclick="mostrarBotoes()">+</button>
-                <div id="div6" class="coisasModuloDash"><img src="../../../../../../../IMAGENS/Saved Pictures/torino.png" alt=""></div>
+                <div id="div6" class="coisasModuloDash">
+                    <div class="eixoTitulo">
+                        <p>Adicione um novo hobby</p>
+                    </div>
+                    <div class="eixo">
+                        <div class="eixoInputs"><input id="hobbyINPUT6"></div>
+                        <div class="eixoBotoes"><button onclick="limparInput6()">+</button></div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
     <!-- <div class="sessaoDois"></div>
@@ -61,9 +108,9 @@
 
 </html>
 <script>
-    
+
     function mostrarBotoes() {
-        
+
         if (divBotaoDois.style.visibility == "hidden") {
             divBotaoDois.style = "visibility: visible;";
             botaoUm.style.display = "none"
@@ -97,4 +144,23 @@
 
         }
     }
+    function limparInput1() {
+        hobbyINPUT1.value = ""
+    }
+    function limparInput2() {
+        hobbyINPUT2.value = ""
+    }
+    function limparInput3() {
+        hobbyINPUT3.value = ""
+    }
+    function limparInput4() {
+        hobbyINPUT4.value = ""
+    }
+    function limparInput5() {
+        hobbyINPUT5.value = ""
+    }
+    function limparInput6() {
+        hobbyINPUT6.value = ""
+    }
+    
 </script>

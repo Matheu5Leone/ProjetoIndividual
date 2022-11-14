@@ -4,5 +4,7 @@ package-lock.json
 
 site/node_modules
 site/package-lock.json
+site/dat-acqu-ino
+site/dat-acqu-ino/node_modules
 
 .github
