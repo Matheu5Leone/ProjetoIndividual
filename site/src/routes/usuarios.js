@@ -20,4 +20,9 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+ /* HOBBIZ */
+ router.post("/dashboard", function (req, res) {
+    usuarioController.cadastrarHobby(req, res);
+})
+
 module.exports = router;

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estastísticas</title>
+    <script src="../js/funcoes.js"></script>
+    <link rel="stylesheet" href="../css/graficos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/iconHobbizSemFundo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="../index.html">
+            <div class="navbarImg"><img src="../assets/Hobbiz.png" onmouseover='this.src="../assets/HobbizAzul.png"'
+                    onmouseout="this.src='../assets/Hobbiz.png'">
+            </div>
+        </a>
+        <div class="nomeUsuario" id="nomeUsuario"></div>
+        <div class="botoesNavbar">
+            <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
+        </div>
+    </div>
+    <div class="sessaoUm">
+        <div class="sessaoUmCoisas">
+            <div class="grafico">
+                <canvas id="myChart" style="margin: 0 auto;"></canvas>
+              </div>
+        </div>
+    </div>
+    <!-- <div class="sessaoDois"></div>
+    <div class="sessaoTres"></div> -->
+    <div class="footer">
+        <img src="../assets/HobbizDegrade.png" alt="">
+        <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
+    </div>
+</body>
+
+</html>
+<script>
+     const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Hobby 1', 'Hobby 2', 'Hobby 3', 'Hobby 4', 'Hobby 5', 'Hobby 6'],
+    datasets: [{
+      label: '# horas dedicadas',
+      data: [12, 10, 3, 5, 12, 3],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+</script>

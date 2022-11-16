@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbiz</title>
+    <script src="../js/funcoes.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +15,19 @@
 </head>
 
 <body>
-    <div class="navbar"><a href="index.html"><img src="assets/Hobbiz.png" onmouseover='this.src="assets/HobbizAzul.png"'
-                onmouseout="this.src='assets/Hobbiz.png'"></a>
+    <div class="navbar">
+        <a href="index.html">
+            <div class="navbarImg"><img src="assets/Hobbiz.png" onmouseover='this.src="assets/HobbizAzul.png"'
+                    onmouseout="this.src='assets/Hobbiz.png'">
+            </div>
+        </a>
+        <div class="nomeUsuario" id="nomeUsuario"></div>
         <div class="botoesNavbar">
-            <div class="loginNavbar"><a href="login.html"><button>LOGIN</button></a></div>
-            <div class="cadastroNavbar"><a href="cadastro.html"><button>CADASTRO</button></a></div>
+            
+            <div class="loginNavbar" id="loginNavbar"><a href="login.html"><button>LOGIN</button></a></div>
+            <div class="cadastroNavbar" id="cadastroNavbar"><a href="cadastro.html"><button>CADASTRO</button></a></div>
+            <div class="dashNavbar" id="dashNavbar"><a href="dashboard/dashboard.html"><button>✨Hobbies</button></a></div>
+            <div class="loginNavbar" id="sairNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
     </div>
     <div class="sessaoUm">
@@ -31,7 +40,16 @@
     </div>
     <div class="sessaoDois">
         <div class="sessaoDoisCoisas">
-            
+            <div id="modulo1" class="moduloQuadro1"></div>
+            <div id="modulo2" class="moduloTexto1"><h1>O que é Hobbiz?</h1><p>Hobbiz nasceu para ajudar seus usuários à
+                organizarem seus hobbies no cotidiano, pois os hobbies são negligenciados e deixados por último na lista
+                de prioridades das pessoas, por que ser tão indiferente consigo mesmo?
+            </p></div>
+            <div id="modulo3" class="moduloTexto2"><h1>A importância dos hobbies</h1><p>
+                Os hobbies moldam e definem uma pessoa, seus hobbies à longo prazo, determina quem você é
+                e quais valores importam pra você, seus hobbies te tornam mais VOCÊ.
+            </p></div>
+            <div id="modulo4" class="moduloQuadro2"></div>
         </div>
     </div>
     <div class="sessaoTres"></div>
@@ -43,5 +61,12 @@
 
 </html>
 <script>
-
+    if (sessionStorage.ID_USUARIO != null) {
+        loginNavbar.style.display = 'none'
+        cadastroNavbar.style.display = 'none'
+        nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
+    } else {
+        dashNavbar.style.display = 'none'
+        sairNavbar.style.display = 'none'
+    }
 </script>

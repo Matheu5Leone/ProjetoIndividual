@@ -31,8 +31,23 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+function cadastrarHobby(hobby1, hobby2, hobby3, hobby4, hobby5, hobby6, fkUsuario){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarHobby():", hobby1, hobby2, hobby3, hobby4, hobby5, hobby6, fkUsuario);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    INSERT INTO hobby (hobby1, hobby2, hobby3, hobby4, hobby5, hobby6, fkUsuario) VALUES
+    ('${hobby1}','${hobby2}','${hobby3}','${hobby4}','${hobby5}','${hobby6}', '${fkUsuario}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cadastrarHobby
 };

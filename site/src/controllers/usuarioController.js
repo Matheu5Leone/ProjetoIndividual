@@ -98,5 +98,39 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    cadastrarHobby
 }
+
+/* HOBBIZ */
+function cadastrarHobby(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    /* DATA VIZ
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer; */
+    var hobby1 = req.body.hobby1;
+    var hobby2 = req.body.hobby2;
+    var hobby3 = req.body.hobby3;
+    var hobby4 = req.body.hobby4;
+    var hobby5 = req.body.hobby5;
+    var hobby6 = req.body.hobby6;
+    var fkUsuario = req.body.fkUsuario;
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarHobby(hobby1, hobby2, hobby3, hobby4, hobby5, hobby6, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }

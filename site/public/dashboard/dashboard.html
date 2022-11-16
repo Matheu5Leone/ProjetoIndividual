@@ -15,9 +15,13 @@
 </head>
 
 <body>
-    <div class="navbar"><a href="../index.html"><img src="../assets/Hobbiz.png"
-                onmouseover='this.src="../assets/HobbizAzul.png"' onmouseout="this.src='../assets/Hobbiz.png'"></a>
-        <h1 id="user"></h1>
+    <div class="navbar">
+        <a href="../index.html">
+            <div class="navbarImg"><img src="../assets/Hobbiz.png" onmouseover='this.src="../assets/HobbizAzul.png"'
+                    onmouseout="this.src='../assets/Hobbiz.png'">
+            </div>
+        </a>
+        <div class="nomeUsuario" id="nomeUsuario"></div>
         <div class="botoesNavbar">
             <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
@@ -27,72 +31,72 @@
             <div id="divBotaoUm" class="moduloDash">
                 <button id="botaoUm" onclick="mostrarBotoes()">+</button>
                 <div id="div1" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div1Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT1"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput1()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput1()">+</button></div>
                     </div>
                 </div>
             </div>
             <div id="divBotaoDois" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoDois" onclick="mostrarBotoes()">+</button>
                 <div id="div2" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div2Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT2"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput2()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput2()">+</button></div>
                     </div>
                 </div>
             </div>
             <div id="divBotaoTres" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoTres" onclick="mostrarBotoes()">+</button>
                 <div id="div3" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div3Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT3"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput3()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput3()">+</button></div>
                     </div>
                 </div>
             </div>
             <div id="divBotaoQuatro" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoQuatro" onclick="mostrarBotoes()">+</button>
                 <div id="div4" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div4Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT4"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput4()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput4()">+</button></div>
                     </div>
                 </div>
             </div>
             <div id="divBotaoCinco" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoCinco" onclick="mostrarBotoes()">+</button>
                 <div id="div5" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div5Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT5"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput5()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput5()">+</button></div>
                     </div>
                 </div>
             </div>
             <div id="divBotaoSeis" style="visibility: hidden; transition: all 1s;" class="moduloDash">
                 <button id="botaoSeis" onclick="mostrarBotoes()">+</button>
                 <div id="div6" class="coisasModuloDash">
-                    <div class="eixoTitulo">
+                    <div id="div6Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
                         <div class="eixoInputs"><input id="hobbyINPUT6"></div>
-                        <div class="eixoBotoes"><button onclick="limparInput6()">+</button></div>
+                        <div class="eixoBotoes"><button onclick="executarInput6()">+</button></div>
                     </div>
                 </div>
             </div>
@@ -108,9 +112,20 @@
 
 </html>
 <script>
+    var novoHobby
+    var HOBBY_USUARIO1
+    var HOBBY_USUARIO2
+    var HOBBY_USUARIO3
+    var HOBBY_USUARIO4
+    var HOBBY_USUARIO5
+    var HOBBY_USUARIO6
+    var idUser = sessionStorage.ID_USUARIO
+
+    if (sessionStorage.ID_USUARIO != null) {
+        nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
+    }
 
     function mostrarBotoes() {
-
         if (divBotaoDois.style.visibility == "hidden") {
             divBotaoDois.style = "visibility: visible;";
             botaoUm.style.display = "none"
@@ -144,23 +159,111 @@
 
         }
     }
-    function limparInput1() {
-        hobbyINPUT1.value = ""
+
+
+    function executarInput1() {
+        novoHobby = hobbyINPUT1.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div1Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div1Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT1.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO1', novoHobby);
+            HOBBY_USUARIO1 = sessionStorage.HOBBY_USUARIO1;
+            cadastrarHobby()
+            console.log(mySqlConfig)
+        }
     }
-    function limparInput2() {
-        hobbyINPUT2.value = ""
+    function executarInput2() {
+        novoHobby = hobbyINPUT2.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div2Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div2Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT2.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO2', novoHobby);
+            HOBBY_USUARIO2 = sessionStorage.HOBBY_USUARIO2;
+            cadastrarHobby()
+        }
     }
-    function limparInput3() {
-        hobbyINPUT3.value = ""
+    function executarInput3() {
+        novoHobby = hobbyINPUT3.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div3Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div3Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT3.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO3', novoHobby);
+            HOBBY_USUARIO3 = sessionStorage.HOBBY_USUARIO3;
+            cadastrarHobby()
+        }
     }
-    function limparInput4() {
-        hobbyINPUT4.value = ""
+    function executarInput4() {
+        novoHobby = hobbyINPUT4.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div4Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div4Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT4.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO4', novoHobby);
+            HOBBY_USUARIO4 = sessionStorage.HOBBY_USUARIO4;
+            cadastrarHobby()
+        }
     }
-    function limparInput5() {
-        hobbyINPUT5.value = ""
+    function executarInput5() {
+        novoHobby = hobbyINPUT5.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div5Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div5Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT5.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO5', novoHobby);
+            HOBBY_USUARIO5 = sessionStorage.HOBBY_USUARIO5;
+            cadastrarHobby()
+        }
     }
-    function limparInput6() {
-        hobbyINPUT6.value = ""
+    function executarInput6() {
+        novoHobby = hobbyINPUT6.value
+        if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
+            alert('Insira um Hobby válido')
+        } else {
+            div6Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div6Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
+            hobbyINPUT6.value = ""
+            sessionStorage.setItem('HOBBY_USUARIO6', novoHobby);
+            HOBBY_USUARIO6 = sessionStorage.HOBBY_USUARIO6;
+            cadastrarHobby()
+        }
     }
-    
+
+
+
+
+    function cadastrarHobby() {
+
+        fetch("/usuarios/dashboard", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                hobby1: HOBBY_USUARIO1,
+                hobby2: HOBBY_USUARIO2,
+                hobby3: HOBBY_USUARIO3,
+                hobby4: HOBBY_USUARIO4,
+                hobby5: HOBBY_USUARIO5,
+                hobby6: HOBBY_USUARIO6,
+                fkUsuario: idUser
+            })
+        })
+
+    }
+
 </script>
