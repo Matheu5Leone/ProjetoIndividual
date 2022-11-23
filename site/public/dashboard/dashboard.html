@@ -113,13 +113,18 @@
 </html>
 <script>
     var novoHobby
+    var card 
+    var titulo
+    var quando = '2022-12-14 13:00:00'
+    var horasDedicadas = '01:30:00'
+
     var HOBBY_USUARIO1
     var HOBBY_USUARIO2
     var HOBBY_USUARIO3
     var HOBBY_USUARIO4
     var HOBBY_USUARIO5
     var HOBBY_USUARIO6
-    var idUser = sessionStorage.ID_USUARIO
+    var fkUsuario = Number(sessionStorage.ID_USUARIO)
 
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
@@ -166,13 +171,15 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 1
+            titulo = novoHobby
             div1Titulo.innerHTML = `<p>${novoHobby}</p>`
             div1Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT1.value = ""
             sessionStorage.setItem('HOBBY_USUARIO1', novoHobby);
             HOBBY_USUARIO1 = sessionStorage.HOBBY_USUARIO1;
             cadastrarHobby()
-            console.log(mySqlConfig)
+            console.log(fkUsuario)
         }
     }
     function executarInput2() {
@@ -180,6 +187,8 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 2
+            titulo = novoHobby
             div2Titulo.innerHTML = `<p>${novoHobby}</p>`
             div2Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT2.value = ""
@@ -193,6 +202,8 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 3
+            titulo = novoHobby
             div3Titulo.innerHTML = `<p>${novoHobby}</p>`
             div3Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT3.value = ""
@@ -206,6 +217,8 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 4
+            titulo = novoHobby
             div4Titulo.innerHTML = `<p>${novoHobby}</p>`
             div4Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT4.value = ""
@@ -219,6 +232,8 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 5
+            titulo = novoHobby
             div5Titulo.innerHTML = `<p>${novoHobby}</p>`
             div5Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT5.value = ""
@@ -232,6 +247,8 @@
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
         } else {
+            card = 6
+            titulo = novoHobby
             div6Titulo.innerHTML = `<p>${novoHobby}</p>`
             div6Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT6.value = ""
@@ -254,13 +271,11 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                hobby1: HOBBY_USUARIO1,
-                hobby2: HOBBY_USUARIO2,
-                hobby3: HOBBY_USUARIO3,
-                hobby4: HOBBY_USUARIO4,
-                hobby5: HOBBY_USUARIO5,
-                hobby6: HOBBY_USUARIO6,
-                fkUsuario: idUser
+                fkUsuario: fkUsuario,
+                card: card,
+                titulo: titulo,
+                quando: quando,
+                horasDedicadas: horasDedicadas
             })
         })
 
