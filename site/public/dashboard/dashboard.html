@@ -35,8 +35,23 @@
                         <p>Adicione um novo hobby</p>
                     </div>
                     <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT1"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput1()">+</button></div>
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT1">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT1">
+                                    <p>Hora</p><input id="horaINPUT1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT1">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput1()">+</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,17 +128,12 @@
 </html>
 <script>
     var novoHobby
-    var card 
+    var card
     var titulo
-    var quando = '2022-12-14 13:00:00'
-    var horasDedicadas = '01:30:00'
+    var quando 
+    var horasDedicadas
+    var hoje = new Date()
 
-    var HOBBY_USUARIO1
-    var HOBBY_USUARIO2
-    var HOBBY_USUARIO3
-    var HOBBY_USUARIO4
-    var HOBBY_USUARIO5
-    var HOBBY_USUARIO6
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
 
     if (sessionStorage.ID_USUARIO != null) {
@@ -165,21 +175,34 @@
         }
     }
 
-
     function executarInput1() {
         novoHobby = hobbyINPUT1.value
+        var dia = diaINPUT1.value
+        var hora = horaINPUT1.value
+        var duracao = duracaoINPUT1.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT1.style.border = "1px solid red";
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT1.style.border = "1px solid red";
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT1.style.border = "1px solid red";
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT1.style.border = "1px solid red";
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT1.style.border = "none";
             card = 1
             titulo = novoHobby
             div1Titulo.innerHTML = `<p>${novoHobby}</p>`
             div1Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT1.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO1', novoHobby);
-            HOBBY_USUARIO1 = sessionStorage.HOBBY_USUARIO1;
             cadastrarHobby()
-            console.log(fkUsuario)
         }
     }
     function executarInput2() {
@@ -192,8 +215,6 @@
             div2Titulo.innerHTML = `<p>${novoHobby}</p>`
             div2Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT2.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO2', novoHobby);
-            HOBBY_USUARIO2 = sessionStorage.HOBBY_USUARIO2;
             cadastrarHobby()
         }
     }
@@ -207,8 +228,6 @@
             div3Titulo.innerHTML = `<p>${novoHobby}</p>`
             div3Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT3.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO3', novoHobby);
-            HOBBY_USUARIO3 = sessionStorage.HOBBY_USUARIO3;
             cadastrarHobby()
         }
     }
@@ -222,8 +241,6 @@
             div4Titulo.innerHTML = `<p>${novoHobby}</p>`
             div4Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT4.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO4', novoHobby);
-            HOBBY_USUARIO4 = sessionStorage.HOBBY_USUARIO4;
             cadastrarHobby()
         }
     }
@@ -237,8 +254,6 @@
             div5Titulo.innerHTML = `<p>${novoHobby}</p>`
             div5Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT5.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO5', novoHobby);
-            HOBBY_USUARIO5 = sessionStorage.HOBBY_USUARIO5;
             cadastrarHobby()
         }
     }
@@ -252,13 +267,12 @@
             div6Titulo.innerHTML = `<p>${novoHobby}</p>`
             div6Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT6.value = ""
-            sessionStorage.setItem('HOBBY_USUARIO6', novoHobby);
-            HOBBY_USUARIO6 = sessionStorage.HOBBY_USUARIO6;
             cadastrarHobby()
         }
     }
 
-
+    /*          sessionStorage.setItem('HOBBY_USUARIO6', novoHobby);
+                HOBBY_USUARIO6 = sessionStorage.HOBBY_USUARIO6; */
 
 
     function cadastrarHobby() {
@@ -278,7 +292,7 @@
                 horasDedicadas: horasDedicadas
             })
         })
-
+        horasDedicadas = ''
     }
 
 </script>

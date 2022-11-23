@@ -8,6 +8,21 @@ body {
     background: linear-gradient(#0981AF 50%, #073344);
 }
 
+body::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  body::-webkit-scrollbar-track {
+    background: #FFEB82;        /* color of the tracking area */
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #662B99;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+    border: none /* creates padding around scroll thumb */
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #9f6dca;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+  }
 .navbar {
     background-color: #15171a;
     width: 100%;
@@ -170,20 +185,66 @@ body {
     margin: 0%;
 }
 .eixo {
+    margin-left: 18px;
     display: flex;
+    flex-direction: row;
     /* border: red 1px solid; */
-    width: 100%; height: 70%;
+    width: 100%; height: 90%;
     align-items: flex-start;
     justify-content: center;
 }
-.eixoBotoes{
-    width: 40%;
+.eixo p{
+    font-weight: bold;
+    color: #662B99;
+    margin: 0 0 10px 5px;
+}
+.eixo1 {
+    /* border: rgb(82, 0, 214) 1px solid; */
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.eixo1 input {
+    width: 200px;
+}
+.eixo2 {
     /* border: red 1px solid; */
+    width: 30%;
+    height: 77%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.eixo2 input {
+    width: 70px;
+    margin-bottom: 20px;
+}
+.dataHora {
+    height: 50%;
+    width: 230px;
+    /* border: red 1px solid; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.dataHora p{
+    margin: 5px 5px 0 0;
+}
+.dataHora input{
+    width: 80px;
+}
+/* .eixoBotoes{
+    width: 50%;
+    margin-bottom: 2px;
+    display: flex;
+    border: red 1px solid;
     align-items: center;
     justify-content: center;
-}
-.eixoBotoes button {
-    padding: 1px 10px;
+} */
+.eixoInputs button {
+    padding: 1px 30px;
     background-color: #662B99;
     font-size: 25px;
     font-weight: bold;
@@ -193,7 +254,7 @@ body {
     box-shadow: none;
     border: none;
 }
-.eixoBotoes button:hover {
+.eixoInputs button:hover {
     color: white;
     cursor: pointer;
     background-color: #0981AF;

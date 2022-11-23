@@ -23,7 +23,7 @@ horasDedicadas TIME,
 INSERT INTO usuario (nome, email, senha) VALUES
 ('lele','lele@gmail','lele');
 INSERT INTO hobby VALUES
-(1,1,'Tricotar','2022-12-14 13:00:00', '01:30:00');
+(1,5,'Marmita','20221214160000', '2000');
 
 
 SELECT usuario.nome, hobby.titulo FROM usuario 
@@ -34,7 +34,7 @@ SELECT * FROM usuario;
 SELECT * FROM hobby;
 
 
-
+truncate table hobby;
 drop database hobbiz;
 
 
