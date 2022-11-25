@@ -25,4 +25,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.cadastrarHobby(req, res);
 });
 
+router.post("/mostrarHobbies", function (req, res) {
+    usuarioController.mostrarHobbies(req, res);
+});
+
 module.exports = router;

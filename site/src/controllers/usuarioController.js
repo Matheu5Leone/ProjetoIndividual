@@ -99,22 +99,14 @@ module.exports = {
     cadastrar,
     listar,
     testar,
-    cadastrarHobby
+    cadastrarHobby,
+    mostrarHobbies
 }
 
 /* HOBBIZ */
 function cadastrarHobby(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    /* DATA VIZ
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer; */
-    /* var hobby1 = req.body.hobby1;
-    var hobby2 = req.body.hobby2;
-    var hobby3 = req.body.hobby3;
-    var hobby4 = req.body.hobby4;
-    var hobby5 = req.body.hobby5;
-    var hobby6 = req.body.hobby6; */
+    /* DATA VIZ */
     var fkUsuario = req.body.fkUsuario;
     var card = req.body.card;
     var titulo = req.body.titulo;
@@ -134,6 +126,30 @@ function cadastrarHobby(req, res) {
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage
                     );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+    function mostrarHobbies(req, res) {
+
+        var fkUsuario = req.body.fkUsuario;
+        var card = req.body.card;
+        var titulo = req.body.titulo;
+        var quando = req.body.quando;
+        var horasDedicadas = req.body.horasDedicadas;
+
+        usuarioModel.mostrarHobbies(fkUsuario, card, titulo, quando, horasDedicadas)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
