@@ -99,8 +99,7 @@ module.exports = {
     cadastrar,
     listar,
     testar,
-    cadastrarHobby,
-    mostrarHobbies
+    cadastrarHobby
 }
 
 /* HOBBIZ */
@@ -126,30 +125,6 @@ function cadastrarHobby(req, res) {
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage
                     );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-
-    function mostrarHobbies(req, res) {
-
-        var fkUsuario = req.body.fkUsuario;
-        var card = req.body.card;
-        var titulo = req.body.titulo;
-        var quando = req.body.quando;
-        var horasDedicadas = req.body.horasDedicadas;
-
-        usuarioModel.mostrarHobbies(fkUsuario, card, titulo, quando, horasDedicadas)
-            .then(function (resultado) {
-                if (resultado.length > 0) {
-                    res.status(200).json(resultado);
-                } else {
-                    res.status(204).send("Nenhum resultado encontrado!")
-                }
-            }).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );

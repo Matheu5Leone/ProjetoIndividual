@@ -34,25 +34,29 @@
                     <div id="div1Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                     </div>
-                    <div class="eixo">
+                    <div class="eixo" id="eixo1">
                         <div class="eixo1">
                             <div class="eixoInputs">
                                 <p>Titulo:</p><input id="hobbyINPUT1">
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT1">
-                                    <p>Hora</p><input id="horaINPUT1">
+                                    <p>Dia</p><input id="diaINPUT1" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT1" placeholder="00 00 00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT1">
+                                <p>Duração:</p><input id="duracaoINPUT1" placeholder="00 00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput1()">+</button></div>
                         </div>
                     </div>
+                    <div class="depoisEixo1" id="depoisEixo1" style="display: none;">
+                        <p>TESTE</p>
+                    </div>
+
                 </div>
             </div>
             <div id="divBotaoDois" style="visibility: hidden; transition: all 1s;" class="moduloDash">
@@ -130,7 +134,7 @@
     var novoHobby
     var card
     var titulo
-    var quando 
+    var quando
     var horasDedicadas
     var hoje = new Date()
 
@@ -141,11 +145,11 @@
     }
 
     function mostrarHobbies() {
-               //aguardar();
-               fetch("/usuarios/mostrarHobbies").then(function (resposta) {
+        //aguardar();
+        fetch(`/avisos/mostrarHobbies/${fkUsuario}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
-                    var feed = document.getElementById("feed_container");
+                    var feed = document.getElementById("depoisEixo1");
                     var mensagem = document.createElement("span");
                     mensagem.innerHTML = "Nenhum resultado encontrado."
                     feed.appendChild(mensagem);
@@ -154,67 +158,26 @@
 
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var feed = document.getElementById("feed_container");
-                    feed.innerHTML = "";
+                    
+                    var feed = document.getElementById("depoisEixo1");
+                    feed.innerHTML = "TUDO OK <br>";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
-                        var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
-                        var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
-
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
-
-                        divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
-
-                        divButtons.className = "div-buttons"
-
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        divPublicacao.appendChild(spanID);
-                        divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
-                        feed.appendChild(divPublicacao);
+                        feed.innerHTML += `${publicacao.titulo} <br>`;
+                        console.log(publicacao.titulo)
                     }
 
-                    finalizarAguardar();
+                    
                 });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            finalizarAguardar();
+            
         });
     }
-    
+
 
     function mostrarBotoes() {
         if (divBotaoDois.style.visibility == "hidden") {
@@ -259,16 +222,16 @@
 
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
-            hobbyINPUT1.style.border = "1px solid red";
+            hobbyINPUT1.style = 'background-color: #ff8282;'
         } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
             alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
-            duracaoINPUT1.style.border = "1px solid red";
+            duracaoINPUT1.style = 'background-color: #ff8282;'
         } else if (dia.length != 8 || isNaN(dia)) {
             alert('Formato da data é AAAA MM DD')
-            diaINPUT1.style.border = "1px solid red";
+            diaINPUT1.style.style = 'background-color: #ff8282;'
         } else if (hora.length != 4 || isNaN(dia)) {
             alert('Formato do horario é HH MM')
-            horaINPUT1.style.border = "1px solid red";
+            horaINPUT1.style.style = 'background-color: #ff8282;'
         } else {
             horasDedicadas = duracao * 100
             quando = horasDedicadas.toString() + hora.toString()
@@ -369,6 +332,9 @@
             })
         })
         horasDedicadas = ''
+
+        eixo1.style.display = 'none'
+        depoisEixo1.style.display = 'flex'
     }
 
 </script>
