@@ -33,6 +33,7 @@
                 <div id="div1" class="coisasModuloDash">
                     <div id="div1Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
                     <div class="eixo" id="eixo1">
                         <div class="eixo1">
@@ -42,7 +43,7 @@
                             <div class="eixoInputs">
                                 <div class="dataHora">
                                     <p>Dia</p><input id="diaINPUT1" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT1" placeholder="00 00 00">
+                                    <p>Hora</p><input id="horaINPUT1" placeholder="00 00">
                                 </div>
                             </div>
                         </div>
@@ -56,66 +57,165 @@
                     <div class="depoisEixo1" id="depoisEixo1" style="display: none;">
                         <p>TESTE</p>
                     </div>
-
                 </div>
             </div>
-            <div id="divBotaoDois" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+            <!-- 2 -->
+            <div id="divBotaoDois" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoDois" onclick="mostrarBotoes()">+</button>
-                <div id="div2" class="coisasModuloDash">
-                    <div id="div2Titulo" class="eixoTitulo">
+                <div id="div2" class="coisasModuloDash" >
+                    <div id="div2Titulo" class="eixoTitulo" >
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
-                    <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT2"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput2()">+</button></div>
+                    <div class="eixo" id="eixo2">
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT2">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT2" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT2" placeholder="00 00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT2" placeholder="00 00">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput2()">+</button></div>
+                        </div>
+                    </div>
+                    <div class="depoisEixo1" id="depoisEixo2" style="display: none;">
+                        <p>TESTE</p>
                     </div>
                 </div>
             </div>
-            <div id="divBotaoTres" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+            <!-- 3 -->
+            <div id="divBotaoTres" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoTres" onclick="mostrarBotoes()">+</button>
                 <div id="div3" class="coisasModuloDash">
                     <div id="div3Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
-                    <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT3"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput3()">+</button></div>
+                    <div class="eixo" id="eixo3">
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT3">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT3" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT3" placeholder="00 00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT3" placeholder="00 00">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput3()">+</button></div>
+                        </div>
+                    </div>
+                    <div class="depoisEixo1" id="depoisEixo3" style="display: none;">
+                        <p>TESTE</p>
                     </div>
                 </div>
             </div>
-            <div id="divBotaoQuatro" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+            <!-- 4 -->
+            <div id="divBotaoQuatro" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoQuatro" onclick="mostrarBotoes()">+</button>
                 <div id="div4" class="coisasModuloDash">
                     <div id="div4Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
-                    <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT4"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput4()">+</button></div>
+                    <div class="eixo" id="eixo4">
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT4">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT4" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT4" placeholder="00 00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT4" placeholder="00 00">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput4()">+</button></div>
+                        </div>
+                    </div>
+                    <div class="depoisEixo1" id="depoisEixo4" style="display: none;">
+                        <p>TESTE</p>
                     </div>
                 </div>
             </div>
-            <div id="divBotaoCinco" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+            <!-- 5 -->
+            <div id="divBotaoCinco" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoCinco" onclick="mostrarBotoes()">+</button>
                 <div id="div5" class="coisasModuloDash">
                     <div id="div5Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
-                    <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT5"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput5()">+</button></div>
+                    <div class="eixo" id="eixo5">
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT5">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT5" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT5" placeholder="00 00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT5" placeholder="00 00">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput5()">+</button></div>
+                        </div>
+                    </div>
+                    <div class="depoisEixo1" id="depoisEixo5" style="display: none;">
+                        <p>TESTE</p>
                     </div>
                 </div>
             </div>
-            <div id="divBotaoSeis" style="visibility: hidden; transition: all 1s;" class="moduloDash">
+            <!-- 6 -->
+            <div id="divBotaoSeis" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoSeis" onclick="mostrarBotoes()">+</button>
                 <div id="div6" class="coisasModuloDash">
                     <div id="div6Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
+                        <!-- botao X aqui -->
                     </div>
-                    <div class="eixo">
-                        <div class="eixoInputs"><input id="hobbyINPUT6"></div>
-                        <div class="eixoBotoes"><button onclick="executarInput6()">+</button></div>
+                    <div class="eixo" id="eixo6">
+                        <div class="eixo1">
+                            <div class="eixoInputs">
+                                <p>Titulo:</p><input id="hobbyINPUT6">
+                            </div>
+                            <div class="eixoInputs">
+                                <div class="dataHora">
+                                    <p>Dia</p><input id="diaINPUT6" placeholder="YYYY MM DD">
+                                    <p>Hora</p><input id="horaINPUT6" placeholder="00 00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eixo2">
+                            <div class="eixoInputs">
+                                <p>Duração:</p><input id="duracaoINPUT6" placeholder="00 00">
+                            </div>
+                            <div class="eixoInputs"><button onclick="executarInput6()">+</button></div>
+                        </div>
+                    </div>
+                    <div class="depoisEixo1" id="depoisEixo6" style="display: none;">
+                        <p>TESTE</p>
                     </div>
                 </div>
             </div>
@@ -136,16 +236,16 @@
     var titulo
     var quando
     var horasDedicadas
-    var hoje = new Date()
 
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
 
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
     }
-
+    function relo() {
+        document.location.reload(true);
+    }
     function mostrarHobbies() {
-        //aguardar();
         fetch(`/avisos/mostrarHobbies/${fkUsuario}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -158,23 +258,87 @@
 
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    
+
                     var feed = document.getElementById("depoisEixo1");
                     feed.innerHTML = "TUDO OK <br>";
+
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
                         feed.innerHTML += `${publicacao.titulo} <br>`;
-                        console.log(publicacao.titulo)
+                        console.log(publicacao)
+
+                        if (publicacao.card == 1) {
+                            divBotaoDois.style = "visibility: visible;";
+                            botaoUm.style.display = "none"
+                            divBotaoUm.style = "background-color: #bfe3f1;"
+                            div1.style.display = "flex"
+                            eixo1.style.display = "none"
+                            depoisEixo1.style.display = "flex"
+                            div1Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div1Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao1"><button id="idFecharBotao1"onclick="setarDelete1()">X</button>`
+                            
+                        } 
+                        if (publicacao.card == 2 ) {
+                            botaoDois.style = "visibility: hidden;";
+                            divBotaoTres.style = "visibility: visible;";
+                            botaoDois.style.display = "none"
+                            divBotaoDois.style = "background-color: #bfe3f1;"
+                            div2.style.display = "flex"
+                            eixo2.style.display = "none"
+                            depoisEixo2.style.display = "flex"
+                            div2Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div2Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao2"><button id="idFecharBotao2"onclick="setarDelete2()">X</button>`
+                        }
+                        if (publicacao.card == 3) {
+                            divBotaoQuatro.style = "visibility: visible;";
+                            botaoTres.style.display = "none"
+                            divBotaoTres.style = "background-color: #bfe3f1;"
+                            div3.style.display = "flex"
+                            eixo3.style.display = "none"
+                            depoisEixo3.style.display = "flex"
+                            div3Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div3Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao3"><button id="idFecharBotao3"onclick="setarDelete3()">X</button>`
+                        }
+                        if (publicacao.card == 4) {
+                            divBotaoCinco.style = "visibility: visible;";
+                            botaoQuatro.style.display = "none"
+                            divBotaoQuatro.style = "background-color: #bfe3f1;"
+                            div4.style.display = "flex"
+                            eixo4.style.display = "none"
+                            depoisEixo4.style.display = "flex"
+                            div4Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div4Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao4"><button id="idFecharBotao4"onclick="setarDelete4()">X</button>`
+                        }
+                        if (publicacao.card == 5) {
+                            divBotaoSeis.style = "visibility: visible;";
+                            botaoCinco.style.display = "none"
+                            divBotaoCinco.style = "background-color: #bfe3f1;"
+                            div5.style.display = "flex"
+                            eixo5.style.display = "none"
+                            depoisEixo5.style.display = "flex"
+                            div5Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div5Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao5"><button id="idFecharBotao5" onclick="setarDelete5()">X</button>`
+                        }
+                        if (publicacao.card == 6) {
+                            botaoSeis.style.display = "none"
+                            divBotaoSeis.style = "background-color: #bfe3f1;"
+                            div6.style.display = "flex"
+                            eixo6.style.display = "none"
+                            depoisEixo6.style.display = "flex"
+                            div6Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
+                            div6Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao6"><button id="idFecharBotao6" onclick="setarDelete6()">X</button>`
+                        }
+                        
                     }
 
-                    
+
                 });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            
+
         });
     }
 
@@ -190,7 +354,7 @@
             botaoDois.style.display = "none"
             divBotaoDois.style = "background-color: #bfe3f1;"
             div2.style.display = "flex"
-        } else if (divBotaoQuatro.style.visibility == "hidden") {
+        } else if (divBotaoQuatro.style.visibility == "hidden") {        
             divBotaoQuatro.style = "visibility: visible;";
             botaoTres.style.display = "none"
             divBotaoTres.style = "background-color: #bfe3f1;"
@@ -228,10 +392,10 @@
             duracaoINPUT1.style = 'background-color: #ff8282;'
         } else if (dia.length != 8 || isNaN(dia)) {
             alert('Formato da data é AAAA MM DD')
-            diaINPUT1.style.style = 'background-color: #ff8282;'
+            diaINPUT1.style = 'background-color: #ff8282;'
         } else if (hora.length != 4 || isNaN(dia)) {
             alert('Formato do horario é HH MM')
-            horaINPUT1.style.style = 'background-color: #ff8282;'
+            horaINPUT1.style = 'background-color: #ff8282;'
         } else {
             horasDedicadas = duracao * 100
             quando = horasDedicadas.toString() + hora.toString()
@@ -242,71 +406,162 @@
             div1Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT1.value = ""
             cadastrarHobby()
+            document.location.reload(true);
         }
     }
     function executarInput2() {
         novoHobby = hobbyINPUT2.value
+        var dia = diaINPUT2.value
+        var hora = horaINPUT2.value
+        var duracao = duracaoINPUT2.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT2.style = 'background-color: #ff8282;'
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT2.style = 'background-color: #ff8282;'
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT2.style = 'background-color: #ff8282;'
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT2.style = 'background-color: #ff8282;'
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT2.style.border = "none";
             card = 2
             titulo = novoHobby
-            div2Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div2Titulo.innerHTML = `<p>${novoHobby}</p> `
             div2Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT2.value = ""
-            cadastrarHobby()
+            cadastrarHobby() 
+            document.location.reload(true);       
         }
     }
     function executarInput3() {
         novoHobby = hobbyINPUT3.value
+        var dia = diaINPUT3.value
+        var hora = horaINPUT3.value
+        var duracao = duracaoINPUT3.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT3.style = 'background-color: #ff8282;'
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT3.style = 'background-color: #ff8282;'
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT3.style = 'background-color: #ff8282;'
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT3.style = 'background-color: #ff8282;'
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT3.style.border = "none";
             card = 3
             titulo = novoHobby
-            div3Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div3Titulo.innerHTML = `<p>${novoHobby}</p> `
             div3Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT3.value = ""
-            cadastrarHobby()
+            cadastrarHobby()    
+            document.location.reload(true);    
         }
     }
     function executarInput4() {
         novoHobby = hobbyINPUT4.value
+        var dia = diaINPUT4.value
+        var hora = horaINPUT4.value
+        var duracao = duracaoINPUT4.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT4.style = 'background-color: #ff8282;'
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT4.style = 'background-color: #ff8282;'
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT4.style = 'background-color: #ff8282;'
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT4.style = 'background-color: #ff8282;'
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT4.style.border = "none";
             card = 4
             titulo = novoHobby
-            div4Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div4Titulo.innerHTML = `<p>${novoHobby}</p> `
             div4Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT4.value = ""
-            cadastrarHobby()
+            cadastrarHobby()   
+            document.location.reload(true);     
         }
     }
     function executarInput5() {
         novoHobby = hobbyINPUT5.value
+        var dia = diaINPUT5.value
+        var hora = horaINPUT5.value
+        var duracao = duracaoINPUT5.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT5.style = 'background-color: #ff8282;'
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT5.style = 'background-color: #ff8282;'
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT5.style = 'background-color: #ff8282;'
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT5.style = 'background-color: #ff8282;'
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT5.style.border = "none";
             card = 5
             titulo = novoHobby
-            div5Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div5Titulo.innerHTML = `<p>${novoHobby}</p> `
             div5Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT5.value = ""
-            cadastrarHobby()
+            cadastrarHobby()     
+            document.location.reload(true);   
         }
     }
     function executarInput6() {
         novoHobby = hobbyINPUT6.value
+        var dia = diaINPUT6.value
+        var hora = horaINPUT6.value
+        var duracao = duracaoINPUT6.value
+
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
+            hobbyINPUT6.style = 'background-color: #ff8282;'
+        } else if (duracao.length != 4 || isNaN(duracao) || duracao < 5) {
+            alert('Duração deve conter o formato HH MM e de 5 minutos pra cima')
+            duracaoINPUT6.style = 'background-color: #ff8282;'
+        } else if (dia.length != 8 || isNaN(dia)) {
+            alert('Formato da data é AAAA MM DD')
+            diaINPUT6.style = 'background-color: #ff8282;'
+        } else if (hora.length != 4 || isNaN(dia)) {
+            alert('Formato do horario é HH MM')
+            horaINPUT6.style = 'background-color: #ff8282;'
         } else {
+            horasDedicadas = duracao * 100
+            quando = horasDedicadas.toString() + hora.toString()
+            hobbyINPUT6.style.border = "none";
             card = 6
             titulo = novoHobby
-            div6Titulo.innerHTML = `<p>${novoHobby}</p>`
+            div6Titulo.innerHTML = `<p>${novoHobby}</p> `
             div6Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT6.value = ""
-            cadastrarHobby()
+            cadastrarHobby()   
+            document.location.reload(true);     
         }
     }
 
@@ -315,7 +570,7 @@
 
 
     function cadastrarHobby() {
-
+        
         fetch("/usuarios/dashboard", {
             method: "POST",
             headers: {
@@ -333,8 +588,55 @@
         })
         horasDedicadas = ''
 
-        eixo1.style.display = 'none'
-        depoisEixo1.style.display = 'flex'
+    }
+
+    function setarDelete1() {
+        card = 1
+        deletarHobby(fkUsuario, card)
+    }
+    function setarDelete2() {
+        card = 2
+        deletarHobby(fkUsuario, card)
+    }
+    function setarDelete3() {
+        card = 3
+        deletarHobby(fkUsuario, card)
+    }
+    function setarDelete4() {
+        card = 4
+        deletarHobby(fkUsuario, card)
+    }
+    function setarDelete5() {
+        card = 5
+        deletarHobby(fkUsuario, card)
+    }
+    function setarDelete6() {
+        card = 6
+        deletarHobby(fkUsuario, card)
+    }
+
+
+    function deletarHobby(fkUsuario, card) {
+        console.log("Criar função de apagar hobby escolhido - ID" + card);
+        fetch(`/avisos/deletarHobby/${fkUsuario}/${card}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+            
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Hobby deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/dashboard.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
 
 </script>

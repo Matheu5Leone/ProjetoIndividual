@@ -37,4 +37,9 @@ router.get("/mostrarHobbies/:fkUsuario", function (req, res) {
     avisoController.mostrarHobbies(req, res);
 });
 
+router.delete("/deletarHobby/:fkUsuario/:card", function (req, res) {
+    avisoController.deletarHobby(req, res);
+});
+
+
 module.exports = router;

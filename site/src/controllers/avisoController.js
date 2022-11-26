@@ -156,6 +156,25 @@ function mostrarHobbies(req, res) {
         );
 }
 
+function deletarHobby(req, res) {
+    var fkUsuario = req.params.fkUsuario;
+    var card = req.params.card;
+
+    avisoModel.deletarHobby(fkUsuario, card)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o hobby: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     testar,
     listar,
@@ -164,5 +183,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    mostrarHobbies
+    mostrarHobbies,
+    deletarHobby
 }

@@ -176,12 +176,40 @@ body::-webkit-scrollbar {
     width: 100%;
     background-color: #662B99;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     /* border: red 1px solid; */
+}
+.fecharBotao {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    color: #a589bd;
+}
+.fecharBotao button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: #FFEB82;
+    color: #662B99;
+    width: 23px;
+    height: 23px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+}
+.fecharBotao button:hover {
+    cursor: pointer;
+    background-color: #ff6e6e;
+    border: none;
 }
 .eixoTitulo p{
     font-size: 15px;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 10px 10px;
     margin: 0%;
 }
 .eixo {
@@ -278,7 +306,16 @@ body::-webkit-scrollbar {
     border: none;
     outline: none;
 }
-
+.depoisEixo1 {
+    background-color: #bfe3f1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    /* border: red 1px solid; */
+    width: 100%; height: auto;
+    align-items: flex-start;
+    justify-content: center;
+}
 .footer {
     z-index: 1;
     background-color: rgb(21, 23, 26);

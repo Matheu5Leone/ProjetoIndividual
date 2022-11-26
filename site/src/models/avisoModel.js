@@ -100,6 +100,15 @@ function mostrarHobbies(fkUsuario) {
     return database.executar(instrucao);
 }
 
+function deletarHobby(fkUsuario, card) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarHobby(card):", card);
+    var instrucao = `
+        DELETE FROM hobby WHERE fkUsuario = ${fkUsuario} AND card = ${card};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
@@ -107,5 +116,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    mostrarHobbies
+    mostrarHobbies,
+    deletarHobby
 }
