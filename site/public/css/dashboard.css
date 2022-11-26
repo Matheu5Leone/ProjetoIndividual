@@ -60,6 +60,16 @@ body::-webkit-scrollbar {
     margin-right: 150px;
 }
 
+.graphNavbar button {
+    padding: 12px 20px;
+    margin: 2px 10px 2px 2px;
+    background-color: #FFEB82;
+    font-size: 14px;
+    font-weight: bold;
+    color: #662B99;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
 .loginNavbar button {
     padding: 10px 20px;
     margin: 2px 10px 2px 2px;
@@ -86,7 +96,10 @@ body::-webkit-scrollbar {
     cursor: pointer;
     background-color: #31afe0;
 }
-
+.graphNavbar button:hover {
+    cursor: pointer;
+    background-color: #0981AF;
+}
 .loginNavbar button:hover {
     cursor: pointer;
     background-color: #0981AF;

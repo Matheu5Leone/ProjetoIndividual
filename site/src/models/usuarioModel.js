@@ -39,7 +39,7 @@ function cadastrarHobby(fkUsuario, card, titulo, quando, horasDedicadas){
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    INSERT INTO hobby VALUES
+    INSERT INTO hobby (fkUsuario, card, titulo, quando, horasDedicadas) VALUES
     ('${fkUsuario}','${card}','${titulo}','${quando}','${horasDedicadas}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

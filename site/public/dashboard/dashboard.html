@@ -23,6 +23,7 @@
         </a>
         <div class="nomeUsuario" id="nomeUsuario"></div>
         <div class="botoesNavbar">
+            <div class="graphNavbar"><a href="graficos.html"><button>Estastísticas</button></a></div>
             <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
     </div>
@@ -234,7 +235,7 @@
     var novoHobby
     var card
     var titulo
-    var quando
+    var quando = ''
     var horasDedicadas
 
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
@@ -242,9 +243,7 @@
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
     }
-    function relo() {
-        document.location.reload(true);
-    }
+   
     function mostrarHobbies() {
         fetch(`/avisos/mostrarHobbies/${fkUsuario}`).then(function (resposta) {
             if (resposta.ok) {
@@ -397,8 +396,10 @@
             alert('Formato do horario é HH MM')
             horaINPUT1.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
+            console.log(quando)
             hobbyINPUT1.style.border = "none";
             card = 1
             titulo = novoHobby
@@ -428,8 +429,9 @@
             alert('Formato do horario é HH MM')
             horaINPUT2.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
             hobbyINPUT2.style.border = "none";
             card = 2
             titulo = novoHobby
@@ -459,8 +461,9 @@
             alert('Formato do horario é HH MM')
             horaINPUT3.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
             hobbyINPUT3.style.border = "none";
             card = 3
             titulo = novoHobby
@@ -490,8 +493,9 @@
             alert('Formato do horario é HH MM')
             horaINPUT4.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
             hobbyINPUT4.style.border = "none";
             card = 4
             titulo = novoHobby
@@ -521,8 +525,9 @@
             alert('Formato do horario é HH MM')
             horaINPUT5.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
             hobbyINPUT5.style.border = "none";
             card = 5
             titulo = novoHobby
@@ -552,8 +557,9 @@
             alert('Formato do horario é HH MM')
             horaINPUT6.style = 'background-color: #ff8282;'
         } else {
+            hora = hora * 100
             horasDedicadas = duracao * 100
-            quando = horasDedicadas.toString() + hora.toString()
+            quando = dia + hora
             hobbyINPUT6.style.border = "none";
             card = 6
             titulo = novoHobby

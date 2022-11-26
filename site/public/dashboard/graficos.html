@@ -24,14 +24,21 @@
         </a>
         <div class="nomeUsuario" id="nomeUsuario"></div>
         <div class="botoesNavbar">
+            <div class="dashNavbar" id="dashNavbar"><a href="dashboard.html"><button>✨Hobbies</button></a></div>
             <div class="loginNavbar"><button onclick="limparSessao()">Sair</button></div>
         </div>
     </div>
     <div class="sessaoUm">
         <div class="sessaoUmCoisas">
             <div class="grafico">
-                <canvas id="myChart" style="margin: 0 auto;"></canvas>
-              </div>
+                <div class="radios">
+                    <input type="radio" name="radin" id="radio1">
+                    <input type="radio" name="radin" id="radio2">
+                    <input type="radio" name="radin" id="radio3">
+                    <input type="radio" name="radin" id="radio4">
+                </div>
+                <!-- <canvas id="myChart" style="margin: 0 auto;"></canvas> -->
+            </div>
         </div>
     </div>
     <!-- <div class="sessaoDois"></div>
@@ -44,67 +51,27 @@
 
 </html>
 <script>
-     const ctx = document.getElementById('myChart');
-     /* let proximaAtualizacao;
-     window.onload = obterDadosGrafico(1); */
-         // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-/*     function obterDadosGrafico(idAquario) {
-        alterarTitulo(idAquario)
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idAquario);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    } */
-
-
-
-
-
-
-
-
-new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ['Hobby 1', 'Hobby 2', 'Hobby 3', 'Hobby 4', 'Hobby 5', 'Hobby 6'],
-    datasets: [{
-      label: '# horas dedicadas',
-      data: [12, 10, 3, 5, 12, 3],
-      borderWidth: 2
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+    var fkUsuario = Number(sessionStorage.ID_USUARIO)
+    if (sessionStorage.ID_USUARIO != null) {
+        nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
     }
-  }
-});
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Hobby 1', 'Hobby 2', 'Hobby 3', 'Hobby 4', 'Hobby 5', 'Hobby 6'],
+            datasets: [{
+                label: '# horas dedicadas',
+                data: [12, 10, 3, 5, 12, 3],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>
