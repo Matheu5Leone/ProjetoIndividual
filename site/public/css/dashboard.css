@@ -324,8 +324,8 @@ body::-webkit-scrollbar {
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    /* border: red 1px solid; */
-    width: 100%; height: auto;
+    border: red 1px solid;
+    width: 100%; height: 85%;
     align-items: flex-start;
     justify-content: center;
 }

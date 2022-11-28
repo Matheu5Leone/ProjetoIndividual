@@ -109,6 +109,24 @@ function deletarHobby(fkUsuario, card) {
     return database.executar(instrucao);
 }
 
+function ultimosHobbies() {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function ultimosHobbies()");
+    var instrucao = `
+    SELECT usuario.nome, hobby.titulo FROM usuario JOIN hobby ON id = fkUsuario ORDER BY hobby.registro DESC LIMIT 10;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function mostrarHorasDedicadas(fkUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
+    var instrucao = `
+    SELECT time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(horasDedicadas) ) ),'%H:%i:%S') AS 'Duracao', time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(horasDedicadas) ) ),'%H%i%S') AS 'total' FROM hobby WHERE fkUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
@@ -117,5 +135,7 @@ module.exports = {
     editar,
     deletar,
     mostrarHobbies,
-    deletarHobby
+    deletarHobby,
+    ultimosHobbies,
+    mostrarHorasDedicadas
 }

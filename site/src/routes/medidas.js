@@ -11,9 +11,8 @@ router.get("/tempo-real/:idAquario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-/* HOBBIZ */
-/* router.get("/ultimas/:id", function (req, res) {
-    medidaController.buscarUltimasMedidas(req, res);
-}); */
+router.get("/obterDados/:fkUsuario", function (req, res) {
+    medidaController.obterDados(req, res);
+});
 
 module.exports = router;

@@ -30,14 +30,22 @@
     </div>
     <div class="sessaoUm">
         <div class="sessaoUmCoisas">
-            <div class="grafico">
-                <div class="radios">
-                    <input type="radio" name="radin" id="radio1">
-                    <input type="radio" name="radin" id="radio2">
-                    <input type="radio" name="radin" id="radio3">
-                    <input type="radio" name="radin" id="radio4">
+            <div class="headBar">
+                <div class="graficoTitulo"><p>PROPORÇÃO</p></div>
+                <div class="textoAcimaGrafico"><p>TEMPO DEDICADO EM CADA HOBBY EM PORCENTAGEM:</p></div>
+                <div class="graficoDiv" id="graficoDiv">
+                    <canvas id="grafico">
+                        <!-- AQUI Ó -->
+                    </canvas>
                 </div>
-                <!-- <canvas id="myChart" style="margin: 0 auto;"></canvas> -->
+            </div>
+            <div class="headBar">
+                <div class="graficoTitulo"><p>LOREM IPSUM</p></div>
+                <div class="graficoDiv"><div class="containerHorasDedicadas" id="containerHorasDedicadas"></div></div>
+            </div>
+            <div class="headBar">
+                <div class="graficoTitulo"><p>ÚLTIMOS HOBBIES CADASTRADOS</p></div>
+                <div class="graficoDiv"><div class="containerUltimosHobbies" id="containerUltimosHobbies"></div></div>
             </div>
         </div>
     </div>
@@ -51,27 +59,187 @@
 
 </html>
 <script>
+
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
     }
+    var totalHoras = 0
+    window.onload = mostrarHorasDedicadas(fkUsuario);
+    window.onload = ultimosHobbies();
+    window.onload = obterDados(fkUsuario);
+    const ctx = document.getElementById('grafico');
 
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Hobby 1', 'Hobby 2', 'Hobby 3', 'Hobby 4', 'Hobby 5', 'Hobby 6'],
-            datasets: [{
-                label: '# horas dedicadas',
-                data: [12, 10, 3, 5, 12, 3],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+
+
+    function obterDados(fkUsuario) {
+
+        /* alterarTitulo(fkUsuario) */
+
+        /* if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        } */
+
+        fetch(`/medidas/obterDados/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    
+                    
+                    desenharGrafico(resposta, fkUsuario);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
             }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function mostrarHorasDedicadas(fkUsuario) {
+        fetch(`/avisos/mostrarHorasDedicadas/${fkUsuario}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("containerHorasDedicadas");
+                    console.log(feed)
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    
+                    for (let i = 0; i < resposta.length; i++) {
+                        var feed = document.getElementById("containerHorasDedicadas");
+                        var publicacao = resposta[i];     
+                        totalHoras = publicacao.total
+                        console.log(totalHoras)                                   
+                        feed.innerHTML += `<p>Você Tem um total de:</p> <br>
+                        <h4>${publicacao.Duracao}</h4> <br> 
+                        <p>Horas Dedicadas aos seus hobbies!</p>`;
+                    }
+
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function desenharGrafico(resposta, fkUsuario) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: []+'%',
+                data: [],
+                fill: false,
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(102, 43, 153)',
+                    'rgb(130, 255, 193)',
+                    'rgb(255, 205, 86)'
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(102, 43, 153)',
+                    'rgb(130, 255, 193)',
+                    'rgb(255, 205, 86)'
+                ],
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDados" e passados para "desenharGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            console.log(registro)
+            labels.push(registro.titulo);
+            dados.datasets[0].data.push(10000 * registro.duracao / totalHoras);
         }
-    });
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets[0].data)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`grafico`),
+            config
+        );
+
+        /* setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000); */
+    }
+
+    function ultimosHobbies() {
+        fetch(`/avisos/ultimosHobbies`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("containerUltimosHobbies");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("containerUltimosHobbies");
+                    feed.innerHTML = `<h4>Usuários e Hobbies:</h4> <br>`;
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML += `<p><b>${i+1}º: ${publicacao.nome}</b>: ${publicacao.titulo}</p><br>`;
+                        console.log(publicacao)
+
+                    }
+
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+    }
+
 </script>

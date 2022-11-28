@@ -249,6 +249,7 @@
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("depoisEixo1");
+                    console.log(feed)
                     var mensagem = document.createElement("span");
                     mensagem.innerHTML = "Nenhum resultado encontrado."
                     feed.appendChild(mensagem);
@@ -258,13 +259,13 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                    var feed = document.getElementById("depoisEixo1");
-                    feed.innerHTML = "TUDO OK <br>";
-
+                    
                     for (let i = 0; i < resposta.length; i++) {
+                        var feed = document.getElementById("depoisEixo1");
                         var publicacao = resposta[i];
-                        feed.innerHTML += `${publicacao.titulo} <br>`;
+                        /* feed.innerHTML += `${publicacao.titulo} <br>`; */
                         console.log(publicacao)
+                        console.log(feed)
 
                         if (publicacao.card == 1) {
                             divBotaoDois.style = "visibility: visible;";
@@ -275,7 +276,7 @@
                             depoisEixo1.style.display = "flex"
                             div1Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div1Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao1"><button id="idFecharBotao1"onclick="setarDelete1()">X</button>`
-                            
+                            depoisEixo1.innerHTML += `${publicacao.titulo} <br>`;
                         } 
                         if (publicacao.card == 2 ) {
                             botaoDois.style = "visibility: hidden;";
@@ -287,7 +288,8 @@
                             depoisEixo2.style.display = "flex"
                             div2Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div2Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao2"><button id="idFecharBotao2"onclick="setarDelete2()">X</button>`
-                        }
+                            depoisEixo2.innerHTML += `${publicacao.titulo} <br>`;
+                            }
                         if (publicacao.card == 3) {
                             divBotaoQuatro.style = "visibility: visible;";
                             botaoTres.style.display = "none"
@@ -297,7 +299,8 @@
                             depoisEixo3.style.display = "flex"
                             div3Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div3Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao3"><button id="idFecharBotao3"onclick="setarDelete3()">X</button>`
-                        }
+                            depoisEixo3.innerHTML += `${publicacao.titulo} <br>`;
+                            }
                         if (publicacao.card == 4) {
                             divBotaoCinco.style = "visibility: visible;";
                             botaoQuatro.style.display = "none"
@@ -307,7 +310,8 @@
                             depoisEixo4.style.display = "flex"
                             div4Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div4Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao4"><button id="idFecharBotao4"onclick="setarDelete4()">X</button>`
-                        }
+                            depoisEixo4.innerHTML += `${publicacao.titulo} <br>`;
+                            }
                         if (publicacao.card == 5) {
                             divBotaoSeis.style = "visibility: visible;";
                             botaoCinco.style.display = "none"
@@ -317,7 +321,8 @@
                             depoisEixo5.style.display = "flex"
                             div5Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div5Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao5"><button id="idFecharBotao5" onclick="setarDelete5()">X</button>`
-                        }
+                            depoisEixo5.innerHTML += `${publicacao.titulo} <br>`;
+                            }
                         if (publicacao.card == 6) {
                             botaoSeis.style.display = "none"
                             divBotaoSeis.style = "background-color: #bfe3f1;"
@@ -326,8 +331,8 @@
                             depoisEixo6.style.display = "flex"
                             div6Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div6Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao6"><button id="idFecharBotao6" onclick="setarDelete6()">X</button>`
-                        }
-                        
+                            depoisEixo6.innerHTML += `${publicacao.titulo} <br>`;
+                            }
                     }
 
 

@@ -40,3 +40,19 @@ drop database hobbiz;
 DELETE FROM hobby WHERE fkUsuario = 4 AND card = 1;
 SELECT usuario.nome, hobby.titulo, hobby.horasDedicadas, hobby.quando, hobby.registro FROM usuario JOIN hobby ON id = fkUsuario ORDER BY hobby.registro DESC;
 update hobby set quando = '20221212130000' where fkUsuario = 3 AND card = 1;
+
+SELECT horasDedicadas FROM hobby WHERE fkUsuario = 4 LIMIT 3;
+SELECT titulo, TIME_FORMAT(horasDedicadas, '%H%i') AS 'Duração', 
+	time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(horasDedicadas) ) ),'%H:%i:%S') AS 'total' 
+	FROM hobby WHERE fkUsuario = 5;
+
+SELECT titulo, TIME_FORMAT(horasDedicadas, '%H%i') AS 'duracao' FROM hobby WHERE fkUsuario = 5; 
+
+
+SELECT usuario.nome, hobby.titulo FROM usuario JOIN hobby ON id = fkUsuario ORDER BY hobby.registro DESC LIMIT 10;
+
+SELECT SUM(horasDedicadas) AS 'Duração' FROM hobby WHERE fkUsuario = 5;
+SELECT SUM(horasDedicadas) FROM hobby WHERE fkUsuario = 5;
+SELECT titulo, horasDedicadas FROM hobby WHERE fkUsuario = 5;
+
+SELECT time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(horasDedicadas) ) ),'%H:%i:%S') AS 'Duracao' FROM hobby WHERE fkUsuario = 5;
