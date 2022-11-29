@@ -15,4 +15,8 @@ router.get("/obterDados/:fkUsuario", function (req, res) {
     medidaController.obterDados(req, res);
 });
 
+router.get("/obterDados2", function (req, res) {
+    medidaController.obterDados2(req, res);
+});
+
 module.exports = router;

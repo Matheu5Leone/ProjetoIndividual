@@ -7,6 +7,21 @@ body {
     margin: 0%;
     background: linear-gradient(#0981AF 50%, #073344);
 }
+body::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  body::-webkit-scrollbar-track {
+    background: #FFEB82;        /* color of the tracking area */
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #662B99;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+    border: none /* creates padding around scroll thumb */
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #9f6dca;    /* color of the scroll thumb */
+    border-radius: 0px;       /* roundness of the scroll thumb */
+  }
 
 .navbar {
     background-color: #15171a;
@@ -125,8 +140,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    height: 550px;
+    width: 95%;
+    height: 600px;
     border-radius: 30px;
 }
 .headBar {
@@ -156,14 +171,33 @@ body {
 }
 .graficoDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 90%;
 }
+.graficoDiv2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+.graficoDiv3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    margin-top: 10px;
+}
 .textoAcimaGrafico {
     /* border: red 1px solid; */
     width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -174,28 +208,53 @@ body {
     width: 90%;
     height: 90%;
 }
-.containerUltimosHobbies p{
+.p1{
     color: rgb(102, 43, 153);
-    margin: 0%;
+    margin: 0%; padding-left: 5px;
+    background: rgba(153, 130, 255, 0.397);
+    border-radius: 5px;
 }
-.containerUltimosHobbies h4 {
-    margin: 0%; color: #0981AF;
+.p2{
+    color: rgb(102, 43, 153);
+    margin: 0 0 8px 0; padding-left: 10px;
+    background: rgba(255, 234, 130, 0.397);
+    border-radius: 5px;
 }
-
+.p1:hover{
+    color: rgb(102, 43, 153);
+    background: rgba(176, 91, 255, 0.555);
+}
+.p2:hover{
+    color: rgb(102, 43, 153);
+    background: rgba(255, 213, 96, 0.589);
+}
 .containerHorasDedicadas{
     display: flex;
     flex-direction: column;
     align-items: center; justify-content: center;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100px;
+    background-color: #FFEB82;
+    box-shadow: rgba(16, 2, 95, 0.531) 0px 0px 30px 5px;
+    border-radius: 0 0 10px 10px;
 }
 .containerHorasDedicadas p{
     color: rgb(102, 43, 153);
-    margin: 0%;
+    margin: 2px;
 }
 .containerHorasDedicadas h4 {
-    margin: 0%; color: #0981AF;
+    margin: 0%; padding: auto; color: #0981AF; font-size: 28px;
 }
+.divAbaixo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    margin-top: 25px;
+    /* border: red 1px solid; */
+    width: 95%;
+    height: 350px;
+}
+
 
 .footer {
     z-index: 1;
