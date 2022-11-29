@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo1" style="display: none;">
-                        <p>TESTE</p>
+                        <!-- INTERFACE AQUI -->
                     </div>
                 </div>
             </div>
@@ -276,7 +276,7 @@
                             depoisEixo1.style.display = "flex"
                             div1Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div1Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao1"><button id="idFecharBotao1"onclick="setarDelete1()">X</button>`
-                            depoisEixo1.innerHTML += `${publicacao.titulo} <br>`;
+                            depoisEixo1.innerHTML += `<p>Horas Dedicadas:</p> <br><h5>${publicacao.horasDedicadas}</h5> <br>`;
                         } 
                         if (publicacao.card == 2 ) {
                             botaoDois.style = "visibility: hidden;";

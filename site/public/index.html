@@ -52,7 +52,16 @@
             <div id="modulo4" class="moduloQuadro2"></div>
         </div>
     </div>
-    <div class="sessaoTres"></div>
+    <div class="sessaoTres">
+        <div class="sessaoTresCoisas"><div class="sessaoTresBotoes">
+            <button class="sessaoTresBotoesEstilo1" id='botaoValores1' onclick="mostrarValor1()">Criatividade</button> 
+            <button class="sessaoTresBotoesEstilo2" id='botaoValores2' onclick="mostrarValor2()">Autoconhecimento</button> 
+            <button class="sessaoTresBotoesEstilo3" id='botaoValores3' onclick="mostrarValor3()">Organização</button></div><div class="sessaoTresCoisasContainer">
+            <div class="sessaoTresCoisasModulos1" id="STC1"></div>
+            <div class="sessaoTresCoisasModulos2" id="STC2" style="display: none;"></div>
+            <div class="sessaoTresCoisasModulos3" id="STC3" style="display: none;"></div></div>
+        </div>
+    </div>
     <div class="footer">
         <img src="assets/HobbizDegrade.png" alt="">
         <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
@@ -68,5 +77,29 @@
     } else {
         dashNavbar.style.display = 'none'
         sairNavbar.style.display = 'none'
+    }
+
+    function mostrarValor1() {
+        if (STC1.style.display != 'flex') {
+            STC2.style.display = 'none'; botaoValores2.style ='background-color: #998f5d';
+            STC3.style.display = 'none'; botaoValores3.style ='background-color: #998f5d';
+            STC1.style.display = 'flex'; botaoValores1.style ='background-color: #FFEB82';
+            
+        }
+    }
+    function mostrarValor2() {
+        if (STC2.style.display != 'flex') {
+            STC1.style.display = 'none'; botaoValores1.style ='background-color: #998f5d';
+            STC3.style.display = 'none'; botaoValores3.style ='background-color: #998f5d';  
+            STC2.style.display = 'flex'; botaoValores2.style ='background-color: #FFEB82';
+            
+        }
+    }
+    function mostrarValor3() {
+        if (STC3.style.display != 'flex') {
+            STC1.style.display = 'none'; botaoValores1.style ='background-color: #998f5d';
+            STC2.style.display = 'none'; botaoValores2.style ='background-color: #998f5d';
+            STC3.style.display = 'flex'; botaoValores3.style ='background-color: #FFEB82';
+        }
     }
 </script>

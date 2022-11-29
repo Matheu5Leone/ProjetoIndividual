@@ -268,15 +268,111 @@ margin: 0;
     margin-top: 0px;
 }
 
-
-
-
-
 .sessaoTres {
+    margin-top: 90px;
+    /* border: white 1px solid; */
     width: 100%;
     height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.sessaoTresCoisas {
+    flex-direction: column;
+    /* border: rgb(230, 6, 6) 1px solid; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 90%;
+    height: 600px;
+    border-radius: 30px 30px 0 0;
+    /* background-color: rgb(255, 255, 255); */
+}
+.sessaoTresCoisasContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.sessaoTresBotoes {
+    /* border: rgb(230, 6, 6) 1px solid; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    width: 100%;
+    height: 60px;
 }
 
+.sessaoTresBotoes button:hover {
+    cursor: pointer;
+}
+.sessaoTresBotoesEstilo1{
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    border: none;
+    background-color: #FFEB82;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #662B99;
+}
+.sessaoTresBotoesEstilo2 {
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    border: none;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #998f5d;
+    color: #662B99;
+}
+.sessaoTresBotoesEstilo3 {
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    border: none;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #998f5d;
+    color: #662B99;
+}
+
+.sessaoTresCoisasModulos1 {
+    width: 95%;
+    height: 500px;
+    background-image: url(../assets/valor1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFEB82;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sessaoTresCoisasModulos2 {
+    width: 95%;
+    height: 500px;
+    background-image: url(../assets/valor2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFEB82;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sessaoTresCoisasModulos3 {
+    width: 95%;
+    height: 500px;
+    background-image: url(../assets/valor3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFEB82;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .footer {
     background-color: rgb(21, 23, 26);
     width: 100%;
@@ -287,6 +383,7 @@ margin: 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    z-index: 1;
 }
 
 .footer p {
