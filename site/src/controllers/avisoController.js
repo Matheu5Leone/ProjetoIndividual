@@ -214,6 +214,26 @@ function mostrarHorasDedicadas(req, res) {
         );
 }
 
+function updateDescricao(req, res) {
+    var fkUsuario = req.params.fkUsuario;
+    var card = req.params.card;
+    var mostrarDescricao = req.params.mostrarDescricao;
+
+    avisoModel.updateDescricao(fkUsuario, card, mostrarDescricao)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o hobby: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     testar,
     listar,
@@ -225,5 +245,6 @@ module.exports = {
     mostrarHobbies,
     deletarHobby,
     ultimosHobbies,
-    mostrarHorasDedicadas
+    mostrarHorasDedicadas,
+    updateDescricao
 }

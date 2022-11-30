@@ -49,4 +49,9 @@ router.get("/mostrarHorasDedicadas/:fkUsuario", function (req, res) {
     avisoController.mostrarHorasDedicadas(req, res);
 });
 
+router.put("/updateDescricao/:fkUsuario/:card/:mostrarDescricao", function (req, res) {
+    avisoController.updateDescricao(req, res);
+});
+
+
 module.exports = router;

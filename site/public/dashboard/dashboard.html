@@ -57,14 +57,15 @@
                     </div>
                     <div class="depoisEixo1" id="depoisEixo1" style="display: none;">
                         <!-- INTERFACE AQUI -->
+
                     </div>
                 </div>
             </div>
             <!-- 2 -->
             <div id="divBotaoDois" class="moduloDash" style="visibility: hidden;">
                 <button id="botaoDois" onclick="mostrarBotoes()">+</button>
-                <div id="div2" class="coisasModuloDash" >
-                    <div id="div2Titulo" class="eixoTitulo" >
+                <div id="div2" class="coisasModuloDash">
+                    <div id="div2Titulo" class="eixoTitulo">
                         <p>Adicione um novo hobby</p>
                         <!-- botao X aqui -->
                     </div>
@@ -88,7 +89,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo2" style="display: none;">
-                        <p>TESTE</p>
+
                     </div>
                 </div>
             </div>
@@ -120,7 +121,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo3" style="display: none;">
-                        <p>TESTE</p>
+
                     </div>
                 </div>
             </div>
@@ -152,7 +153,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo4" style="display: none;">
-                        <p>TESTE</p>
+
                     </div>
                 </div>
             </div>
@@ -184,7 +185,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo5" style="display: none;">
-                        <p>TESTE</p>
+
                     </div>
                 </div>
             </div>
@@ -216,7 +217,7 @@
                         </div>
                     </div>
                     <div class="depoisEixo1" id="depoisEixo6" style="display: none;">
-                        <p>TESTE</p>
+
                     </div>
                 </div>
             </div>
@@ -224,7 +225,7 @@
     </div>
     <!-- <div class="sessaoDois"></div>
     <div class="sessaoTres"></div> -->
-    <div class="footer">
+    <div class="footer" id="footer">
         <img src="../assets/HobbizDegrade.png" alt="">
         <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
     </div>
@@ -237,13 +238,15 @@
     var titulo
     var quando = ''
     var horasDedicadas
-
+    var hoje = new Date();
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
+    var mostrarDescricao = ''
 
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
+        footer.innerHTML += `<div class="data"><p>${(hoje.toString()).slice(0, 15)}</p></div>`
     }
-   
+
     function mostrarHobbies() {
         fetch(`/avisos/mostrarHobbies/${fkUsuario}`).then(function (resposta) {
             if (resposta.ok) {
@@ -259,7 +262,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                    
+
                     for (let i = 0; i < resposta.length; i++) {
                         var feed = document.getElementById("depoisEixo1");
                         var publicacao = resposta[i];
@@ -268,6 +271,12 @@
                         console.log(feed)
 
                         if (publicacao.card == 1) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao1" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao1" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao1"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             divBotaoDois.style = "visibility: visible;";
                             botaoUm.style.display = "none"
                             divBotaoUm.style = "background-color: #bfe3f1;"
@@ -276,9 +285,24 @@
                             depoisEixo1.style.display = "flex"
                             div1Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div1Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao1"><button id="idFecharBotao1"onclick="setarDelete1()">X</button>`
-                            depoisEixo1.innerHTML += `<p>Horas Dedicadas:</p> <br><h5>${publicacao.horasDedicadas}</h5> <br>`;
-                        } 
-                        if (publicacao.card == 2 ) {
+                            depoisEixo1.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc" onclick="updateDescricao1()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
+                        if (publicacao.card == 2) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao2" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao2" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao2"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             botaoDois.style = "visibility: hidden;";
                             divBotaoTres.style = "visibility: visible;";
                             botaoDois.style.display = "none"
@@ -288,9 +312,24 @@
                             depoisEixo2.style.display = "flex"
                             div2Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div2Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao2"><button id="idFecharBotao2"onclick="setarDelete2()">X</button>`
-                            depoisEixo2.innerHTML += `${publicacao.titulo} <br>`;
-                            }
+                            depoisEixo2.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc2" onclick="updateDescricao2()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
                         if (publicacao.card == 3) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao3" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao3" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao3"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             divBotaoQuatro.style = "visibility: visible;";
                             botaoTres.style.display = "none"
                             divBotaoTres.style = "background-color: #bfe3f1;"
@@ -299,9 +338,24 @@
                             depoisEixo3.style.display = "flex"
                             div3Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div3Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao3"><button id="idFecharBotao3"onclick="setarDelete3()">X</button>`
-                            depoisEixo3.innerHTML += `${publicacao.titulo} <br>`;
-                            }
+                            depoisEixo3.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc3" onclick="updateDescricao3()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
                         if (publicacao.card == 4) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao4" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao4" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao4"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             divBotaoCinco.style = "visibility: visible;";
                             botaoQuatro.style.display = "none"
                             divBotaoQuatro.style = "background-color: #bfe3f1;"
@@ -310,9 +364,24 @@
                             depoisEixo4.style.display = "flex"
                             div4Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div4Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao4"><button id="idFecharBotao4"onclick="setarDelete4()">X</button>`
-                            depoisEixo4.innerHTML += `${publicacao.titulo} <br>`;
-                            }
+                            depoisEixo4.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc4" onclick="updateDescricao4()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
                         if (publicacao.card == 5) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao5" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao5" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao5"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             divBotaoSeis.style = "visibility: visible;";
                             botaoCinco.style.display = "none"
                             divBotaoCinco.style = "background-color: #bfe3f1;"
@@ -321,9 +390,24 @@
                             depoisEixo5.style.display = "flex"
                             div5Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div5Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao5"><button id="idFecharBotao5" onclick="setarDelete5()">X</button>`
-                            depoisEixo5.innerHTML += `${publicacao.titulo} <br>`;
-                            }
+                            depoisEixo5.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc5" onclick="updateDescricao5()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
                         if (publicacao.card == 6) {
+                            var textarea1 = '<textarea maxlength="200" id="mostrarDescricao6" placeholder="Adicionar Descrição"></textarea>'
+                            if (publicacao.descricao == null) {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao6" placeholder="Adicionar Descrição"></textarea>'
+                            } else {
+                                textarea1 = '<textarea maxlength="200" id="mostrarDescricao6"> ' + publicacao.descricao + ' </textarea>'
+                            }
                             botaoSeis.style.display = "none"
                             divBotaoSeis.style = "background-color: #bfe3f1;"
                             div6.style.display = "flex"
@@ -331,8 +415,17 @@
                             depoisEixo6.style.display = "flex"
                             div6Titulo.innerHTML = `<p>${publicacao.titulo}</p>`
                             div6Titulo.innerHTML += `<div class="fecharBotao" id="fecharBotao6"><button id="idFecharBotao6" onclick="setarDelete6()">X</button>`
-                            depoisEixo6.innerHTML += `${publicacao.titulo} <br>`;
-                            }
+                            depoisEixo6.innerHTML += `<div class="headDepoisEixo1"><p>Horas Dedicadas para este Hobby:</p><h5>${publicacao.horasDedicadas.slice(0, 5)}hrs</h5></div>
+                            <div class="sessaoUmDepoisEixo1"><p>Descrição:</p><button id="enviarDesc6" onclick="updateDescricao6()">Enviar</button></div>
+                                <div class="sessaoDoisDepoisEixo1">${textarea1}</div>
+                                <div class="sessaoTresDepoisEixo1">
+                                    <p>Em atividade</p><label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                    </label><p>Pausado</p></div>
+                            <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
+                                <p>Horário:</p><h5>${publicacao.quando.slice(11, 19)}</h5></div>`;
+                        }
                     }
 
 
@@ -346,7 +439,6 @@
         });
     }
 
-
     function mostrarBotoes() {
         if (divBotaoDois.style.visibility == "hidden") {
             divBotaoDois.style = "visibility: visible;";
@@ -358,7 +450,7 @@
             botaoDois.style.display = "none"
             divBotaoDois.style = "background-color: #bfe3f1;"
             div2.style.display = "flex"
-        } else if (divBotaoQuatro.style.visibility == "hidden") {        
+        } else if (divBotaoQuatro.style.visibility == "hidden") {
             divBotaoQuatro.style = "visibility: visible;";
             botaoTres.style.display = "none"
             divBotaoTres.style = "background-color: #bfe3f1;"
@@ -401,7 +493,13 @@
             alert('Formato do horario é HH MM')
             horaINPUT1.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
             horasDedicadas = duracao * 100
             quando = dia + hora
             console.log(quando)
@@ -434,7 +532,13 @@
             alert('Formato do horario é HH MM')
             horaINPUT2.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
             horasDedicadas = duracao * 100
             quando = dia + hora
             hobbyINPUT2.style.border = "none";
@@ -443,16 +547,15 @@
             div2Titulo.innerHTML = `<p>${novoHobby}</p> `
             div2Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT2.value = ""
-            cadastrarHobby() 
-            document.location.reload(true);       
+            cadastrarHobby()
+            document.location.reload(true);
         }
     }
     function executarInput3() {
         novoHobby = hobbyINPUT3.value
         var dia = diaINPUT3.value
-        var hora = horaINPUT3.value
+        var hora = horaINPUT3.value.toString()
         var duracao = duracaoINPUT3.value
-
         if (novoHobby.length < 1 || novoHobby.trim().length === 0) {
             alert('Insira um Hobby válido')
             hobbyINPUT3.style = 'background-color: #ff8282;'
@@ -462,11 +565,17 @@
         } else if (dia.length != 8 || isNaN(dia)) {
             alert('Formato da data é AAAA MM DD')
             diaINPUT3.style = 'background-color: #ff8282;'
-        } else if (hora.length != 4 || isNaN(dia)) {
+        } else if (hora.length != 4) {
             alert('Formato do horario é HH MM')
             horaINPUT3.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
             horasDedicadas = duracao * 100
             quando = dia + hora
             hobbyINPUT3.style.border = "none";
@@ -475,8 +584,8 @@
             div3Titulo.innerHTML = `<p>${novoHobby}</p> `
             div3Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT3.value = ""
-            cadastrarHobby()    
-            document.location.reload(true);    
+            cadastrarHobby()
+            document.location.reload(true);
         }
     }
     function executarInput4() {
@@ -498,7 +607,13 @@
             alert('Formato do horario é HH MM')
             horaINPUT4.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
             horasDedicadas = duracao * 100
             quando = dia + hora
             hobbyINPUT4.style.border = "none";
@@ -507,8 +622,8 @@
             div4Titulo.innerHTML = `<p>${novoHobby}</p> `
             div4Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT4.value = ""
-            cadastrarHobby()   
-            document.location.reload(true);     
+            cadastrarHobby()
+            document.location.reload(true);
         }
     }
     function executarInput5() {
@@ -530,7 +645,13 @@
             alert('Formato do horario é HH MM')
             horaINPUT5.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
             horasDedicadas = duracao * 100
             quando = dia + hora
             hobbyINPUT5.style.border = "none";
@@ -539,8 +660,8 @@
             div5Titulo.innerHTML = `<p>${novoHobby}</p> `
             div5Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT5.value = ""
-            cadastrarHobby()     
-            document.location.reload(true);   
+            cadastrarHobby()
+            document.location.reload(true);
         }
     }
     function executarInput6() {
@@ -562,7 +683,14 @@
             alert('Formato do horario é HH MM')
             horaINPUT6.style = 'background-color: #ff8282;'
         } else {
-            hora = hora * 100
+            if (hora.toString().length == 2) {
+                hora = '0000' + hora
+            } else if (hora.toString().length == 3) {
+                hora = '000' + hora
+            } else if (hora.toString().length == 4){
+                hora = '00' + hora
+            }
+            console.log(hora)
             horasDedicadas = duracao * 100
             quando = dia + hora
             hobbyINPUT6.style.border = "none";
@@ -571,17 +699,14 @@
             div6Titulo.innerHTML = `<p>${novoHobby}</p> `
             div6Titulo.style = "background-image: radial-gradient(#975acc, #662B99);"
             hobbyINPUT6.value = ""
-            cadastrarHobby()   
-            document.location.reload(true);     
+            cadastrarHobby()
+            document.location.reload(true);
         }
     }
 
-    /*          sessionStorage.setItem('HOBBY_USUARIO6', novoHobby);
-                HOBBY_USUARIO6 = sessionStorage.HOBBY_USUARIO6; */
-
 
     function cadastrarHobby() {
-        
+
         fetch("/usuarios/dashboard", {
             method: "POST",
             headers: {
@@ -634,11 +759,66 @@
             headers: {
                 "Content-Type": "application/json"
             }
-            
+
         }).then(function (resposta) {
 
             if (resposta.ok) {
                 window.alert("Hobby deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/dashboard.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function updateDescricao1() {
+        card = 1
+        mostrarDescricao = mostrarDescricao1.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+    function updateDescricao2() {
+        card = 2
+        mostrarDescricao = mostrarDescricao2.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+    function updateDescricao3() {
+        card = 3
+        mostrarDescricao = mostrarDescricao3.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+    function updateDescricao4() {
+        card = 4
+        mostrarDescricao = mostrarDescricao4.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+    function updateDescricao5() {
+        card = 5
+        mostrarDescricao = mostrarDescricao5.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+    function updateDescricao6() {
+        card = 6
+        mostrarDescricao = mostrarDescricao6.value
+        updateDescricao(fkUsuario, card, mostrarDescricao)
+    }
+
+    function updateDescricao(fkUsuario, card, mostrarDescricao) {
+        fetch(`/avisos/updateDescricao/${fkUsuario}/${card}/${mostrarDescricao}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: mostrarDescricao
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Descrição do card " + (card) + " atualizada com sucesso!");
                 window.location = "/dashboard/dashboard.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");

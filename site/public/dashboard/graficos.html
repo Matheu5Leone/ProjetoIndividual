@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="headBar">
-                <div class="graficoTitulo"><p>LOREM IPSUM</p></div>
+                <div class="graficoTitulo"><p>RANKING</p></div>
                 <div class="graficoDiv2"><div class="containerHorasDedicadas" id="containerHorasDedicadas"></div>
                 <div class="divAbaixo">
                     <canvas id="grafico2">
@@ -56,7 +56,7 @@
     </div>
     <!-- <div class="sessaoDois"></div>
     <div class="sessaoTres"></div> -->
-    <div class="footer">
+    <div class="footer" id="footer">
         <img src="../assets/HobbizDegrade.png" alt="">
         <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
     </div>
@@ -64,10 +64,11 @@
 
 </html>
 <script>
-
+    var hoje = new Date();
     var fkUsuario = Number(sessionStorage.ID_USUARIO)
     if (sessionStorage.ID_USUARIO != null) {
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
+        footer.innerHTML += `<div class="data"><p>${(hoje.toString()).slice(0,15)}</p></div>`
     }
     var totalHoras = 0
     window.onload = mostrarHorasDedicadas(fkUsuario);
@@ -242,7 +243,7 @@ fetch(`/medidas/obterDados2`, { cache: 'no-store' }).then(function (response) {
         let dados = {
             labels: labels,
             datasets: [{
-                label: '',
+                label: 'Horas',
                 data: [],
                 fill: true,
                 borderColor: [

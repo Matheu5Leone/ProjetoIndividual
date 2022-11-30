@@ -62,7 +62,7 @@
             <div class="sessaoTresCoisasModulos3" id="STC3" style="display: none;"></div></div>
         </div>
     </div>
-    <div class="footer">
+    <div class="footer" id="footer">
         <img src="assets/HobbizDegrade.png" alt="">
         <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
     </div>
@@ -70,10 +70,12 @@
 
 </html>
 <script>
+    var hoje = new Date();
     if (sessionStorage.ID_USUARIO != null) {
         loginNavbar.style.display = 'none'
         cadastroNavbar.style.display = 'none'
         nomeUsuario.innerHTML = `<p>${sessionStorage.NOME_USUARIO}</p>`
+        footer.innerHTML += `<div class="data"><p>${(hoje.toString()).slice(0,15)}</p></div>`
     } else {
         dashNavbar.style.display = 'none'
         sairNavbar.style.display = 'none'

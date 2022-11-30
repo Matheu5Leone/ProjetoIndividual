@@ -90,7 +90,7 @@ function deletar(idAviso) {
 }
 
 function mostrarHobbies(fkUsuario) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function mostrarHobbies()");
     var instrucao = `
         SELECT 
             * from hobby
@@ -127,6 +127,15 @@ function mostrarHorasDedicadas(fkUsuario) {
     return database.executar(instrucao);
 }
 
+function updateDescricao(fkUsuario, card, mostrarDescricao) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function updateDescricao(card):", card);
+    var instrucao = `
+    UPDATE hobby SET descricao = "${mostrarDescricao}" WHERE fkUsuario = ${fkUsuario} AND card = ${card};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
@@ -137,5 +146,6 @@ module.exports = {
     mostrarHobbies,
     deletarHobby,
     ultimosHobbies,
-    mostrarHorasDedicadas
+    mostrarHorasDedicadas,
+    updateDescricao
 }

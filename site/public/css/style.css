@@ -385,6 +385,14 @@ margin: 0;
     justify-content: space-evenly;
     z-index: 1;
 }
+.data {
+    display: flex;
+    width: 30%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
 
 .footer p {
     margin: 0;
