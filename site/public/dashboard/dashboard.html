@@ -43,14 +43,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT1" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT1" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT1" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT1"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT1" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT1" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput1()">+</button></div>
                         </div>
@@ -76,14 +76,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT2" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT2" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT2" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT2"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT2" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT2" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput2()">+</button></div>
                         </div>
@@ -108,14 +108,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT3" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT3" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT3" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT3"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT3" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT3" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput3()">+</button></div>
                         </div>
@@ -140,14 +140,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT4" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT4" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT4" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT4"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT4" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT4" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput4()">+</button></div>
                         </div>
@@ -172,14 +172,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT5" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT5" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT5" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT5"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT5" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT5" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput5()">+</button></div>
                         </div>
@@ -204,14 +204,14 @@
                             </div>
                             <div class="eixoInputs">
                                 <div class="dataHora">
-                                    <p>Dia</p><input id="diaINPUT6" placeholder="YYYY MM DD">
-                                    <p>Hora</p><input id="horaINPUT6" placeholder="00 00">
+                                    <p>Dia:</p><input id="diaINPUT6" maxlength="8" placeholder="YYYY MM DD">
+                                    <p>Hora:</p><input maxlength="4" id="horaINPUT6"  placeholder="00:00">
                                 </div>
                             </div>
                         </div>
                         <div class="eixo2">
                             <div class="eixoInputs">
-                                <p>Duração:</p><input id="duracaoINPUT6" placeholder="00 00">
+                                <p>Duração:</p><input id="duracaoINPUT6" placeholder="00:00">
                             </div>
                             <div class="eixoInputs"><button onclick="executarInput6()">+</button></div>
                         </div>
@@ -295,6 +295,7 @@
                                     </label><p>Pausado</p></div>
                             <div class="footerEixo1"><p>No dia:</p><h5>${publicacao.quando.slice(0, 10)}</h5> 
                                 <p>Horário:</p><h5>${publicacao.quando.slice(14 , 19)}</h5></div>`;
+                    
                         }
                         if (publicacao.card == 2) {
                             var textarea1 = '<textarea maxlength="200" id="mostrarDescricao2" placeholder="Adicionar Descrição"></textarea>'

@@ -314,7 +314,7 @@ body::-webkit-scrollbar {
 }
 .eixoInputs input {
     text-align: center;
-    padding: 8px 5px;
+    padding: 8px;
     border: none;
     border-radius: 10px;
 }

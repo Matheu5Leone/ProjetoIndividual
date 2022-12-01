@@ -80,7 +80,7 @@
 
 
     function obterDados(fkUsuario) {
-
+        
         fetch(`/medidas/obterDados/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
 
             if (response.ok) {
@@ -89,8 +89,8 @@
                     resposta.reverse();
 
                     
+                    setTimeout(() => desenharGrafico(resposta, fkUsuario), 500);
                     
-                    desenharGrafico(resposta, fkUsuario);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -211,7 +211,7 @@
     }
 
     function obterDados2() {
-
+       
 fetch(`/medidas/obterDados2`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
@@ -219,9 +219,8 @@ fetch(`/medidas/obterDados2`, { cache: 'no-store' }).then(function (response) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
+            setTimeout(() => desenharGrafico2(resposta), 500);
             
-            
-            desenharGrafico2(resposta);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');

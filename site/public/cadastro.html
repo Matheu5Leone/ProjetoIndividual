@@ -23,11 +23,7 @@
         </div>
     </div>
     <div class="sessaoUm">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
+
         <div class="sessaoUmCoisas">
             <div class="formularioCadastro">
                 <span class="tipo_campo">Nome:</span>
@@ -42,20 +38,24 @@
                 <span class="tipo_campo">Confirmação da Senha:</span>
                 <input id="confirmaSenhaINPUT" type="password" placeholder="******">
                 <p>Já possui uma conta? <a href="login.html">Entre</a></p>
-                <button onclick="cadastrar()" >CADASTRAR</button>
+                <button onclick="cadastrar()">CADASTRAR</button>
             </div>
-            
+        </div>
     </div>
-    <!-- <div class="sessaoDois"></div>
-    <div class="sessaoTres"></div> -->
-    <div id="div_aguardar" class="loading-div">
-        <img src="./assets/circle-loading.gif" id="loading-gif">
-    </div>
+    <div class="sessaoDois">
+        <div id="div_aguardar" class="loading-div">
+            <img src="assets/circle-loading.gif" id="loading-gif">
+        </div>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
 
-    <div id="div_erros_login">
+        <div id="div_erros_login">
 
+        </div>
     </div>
-</div>
     <div class="footer">
         <img src="assets/HobbizDegrade.png" alt="">
         <p>©Copyright 2022 - Todos os direitos reservados, Hobbiz</p>
@@ -64,7 +64,7 @@
 
 </html>
 <script>
-function cadastrar() {
+    function cadastrar() {
         aguardar();
 
         //Recupere o valor da nova input pelo nome do id
@@ -76,7 +76,7 @@ function cadastrar() {
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "<p>(Mensagem de erro para todos os campos em branco)</p>";
 
             finalizarAguardar();
             return false;
@@ -110,7 +110,7 @@ function cadastrar() {
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
-                
+
                 limparFormulario();
                 finalizarAguardar();
             } else {
